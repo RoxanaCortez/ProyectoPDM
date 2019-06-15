@@ -1,47 +1,45 @@
 package com.roxyapps.roxana.proyectopdm;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
-import at.markushi.ui.CircleButton;
+import com.roxyapps.roxana.proyectopdm.Fragments.Inicio;
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
 
-    CircleButton parents_btn, games_btn, about_btn;
+    Fragment fragmentInicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        parents_btn = findViewById(R.id.btn_parents);
-        games_btn = findViewById(R.id.btn_games);
-        about_btn = findViewById(R.id.btn_about);
+        fragmentInicio = new Inicio();
 
-        parents_btn.setOnClickListener(clickListener);
-        games_btn.setOnClickListener(clickListener);
-        about_btn.setOnClickListener(clickListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
 
-    private View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.btn_parents:
-                    Intent intent_parents = new Intent(MainActivity.this, Parents.class);
-                    startActivity(intent_parents);
-                break;
-                case R.id.btn_games:
-                    Intent intent_games = new Intent(MainActivity.this, Games.class);
-                    startActivity(intent_games);
-                    break;
-                case R.id.btn_about:
-                    Intent intent_about = new Intent(MainActivity.this, About.class);
-                    startActivity(intent_about);
-                    break;
-            }
-        }
-    };
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void InicioParents() {
+        Toast.makeText(getApplicationContext(),"Inicio Padres desde Main",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void InicioGames() {
+        Toast.makeText(getApplicationContext(),"Inicio Games desde Main",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void InicioAbout() {
+        Toast.makeText(getApplicationContext(),"Inicio About desde Main",Toast.LENGTH_SHORT).show();
+    }
 }
