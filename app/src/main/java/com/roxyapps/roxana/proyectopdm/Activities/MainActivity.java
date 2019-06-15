@@ -1,4 +1,4 @@
-package com.roxyapps.roxana.proyectopdm;
+package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.roxyapps.roxana.proyectopdm.Fragments.Inicio;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
+import com.roxyapps.roxana.proyectopdm.R;
 
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
 
