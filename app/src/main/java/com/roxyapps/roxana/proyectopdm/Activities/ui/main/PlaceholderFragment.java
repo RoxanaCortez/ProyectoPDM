@@ -15,6 +15,7 @@ import com.roxyapps.roxana.proyectopdm.Fragments.InstruccionFinal;
 import com.roxyapps.roxana.proyectopdm.Fragments.InstruccionInformacion;
 import com.roxyapps.roxana.proyectopdm.Fragments.InstruccionIniciar;
 import com.roxyapps.roxana.proyectopdm.Fragments.Introduccion;
+import com.roxyapps.roxana.proyectopdm.Fragments.instruccionPadres;
 import com.roxyapps.roxana.proyectopdm.R;
 
 /**
@@ -32,19 +33,13 @@ public class PlaceholderFragment extends Fragment {
         switch (index){
             case 1: fragment = new Introduccion();
             break;
-            case 2: fragment = new InstruccionAyuda();
+            case 2: fragment = new instruccionPadres();
             break;
-            case 3: fragment = new InstruccionFinal();
+            case 3: fragment = new InstruccionIniciar();
             break;
             case 4: fragment = new InstruccionInformacion();
             break;
-            case 5: fragment = new InstruccionIniciar();
-            break;
-            case 6: fragment = new InstruccionNickName();
-            break;
-            case 7: fragment = new InstruccionRanKing();
-            break;
-            case 8: fragment = new InstruccionAjustes();
+            case 5: fragment = new InstruccionFinal();
             break;
         }
 

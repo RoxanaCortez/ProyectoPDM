@@ -36,7 +36,7 @@ public class Inicio extends Fragment {
 
     View vista;
     Activity actividad;
-    CircleButton parents_btn, games_btn, about_btn;
+    CircleButton parents_btn, games_btn, about_btn,;
     ComunicaFragments interfaceComunicaFragments;
 
     public Inicio() {
