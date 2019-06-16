@@ -1,5 +1,6 @@
 package com.roxyapps.roxana.proyectopdm.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,7 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
 /**
@@ -29,6 +32,11 @@ public class Games extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    Button word_btn, memory_btn;
+    View vista;
+    Activity actividad;
+    ComunicaGames interfaceComunicaGames;
 
     public Games() {
         // Required empty public constructor
@@ -65,7 +73,15 @@ public class Games extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false);
+        vista = inflater.inflate(R.layout.fragment_games, container, false);
+
+        memory_btn = vista.findViewById(R.id.btn_memory);
+        word_btn = vista.findViewById(R.id.btn_word);
+
+        memory_btn.setOnClickListener(clickListener);
+        word_btn.setOnClickListener(clickListener);
+
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -78,7 +94,10 @@ public class Games extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
+        if (context instanceof Activity) {
+            actividad = (Activity) context;
+            interfaceComunicaGames = (ComunicaGames) actividad;
+        }if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
@@ -106,4 +125,18 @@ public class Games extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_memory:
+                    interfaceComunicaGames.InicioMemory();
+                    break;
+                case R.id.btn_word:
+                    interfaceComunicaGames.InicioWords();
+                    break;
+            }
+        }
+    };
 }

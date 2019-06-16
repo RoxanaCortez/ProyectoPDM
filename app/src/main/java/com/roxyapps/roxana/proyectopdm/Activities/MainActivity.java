@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.roxyapps.roxana.proyectopdm.Fragments.About;
 import com.roxyapps.roxana.proyectopdm.Fragments.Inicio;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
@@ -33,12 +34,13 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     @Override
     public void InicioParents() {
-        Toast.makeText(getApplicationContext(),"Inicio Padres desde Main",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"Inicio Parents desde Main",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void InicioGames() {
-        Toast.makeText(getApplicationContext(),"Inicio Games desde Main",Toast.LENGTH_SHORT).show();
+        Intent intent_parents = new Intent(this, ContenedorGames.class);
+        startActivity(intent_parents);
     }
 
     @Override
