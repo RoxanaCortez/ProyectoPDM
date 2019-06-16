@@ -1,5 +1,6 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     @Override
     public void InicioAbout() {
-        Toast.makeText(getApplicationContext(),"Inicio About desde Main",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ContenedorInstrucciones.class);
+        startActivity(intent);
     }
 }
