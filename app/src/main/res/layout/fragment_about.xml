@@ -3,19 +3,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.About">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-    <!--No eliminar este boton solo editarlo es para regresar al inicio-->
-    <Button
-        android:id="@+id/btn_inicio"
-        android:layout_width="wrap_content"
-        android:layout_height="125dp"
-        android:text="Inicio" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_margin="8dp"
+            android:textSize="24sp"
+            android:text="Desarrollado por:"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:padding="4dp">
+
+                <at.markushi.ui.CircleButton
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+
+                    android:layout_gravity="center"
+                    app:cb_pressedRingWidth="8dp"
+                    android:src="@drawable/parents_icon"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/tv_name_rc"
+
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/tv_github_rc"
+                        android:textColor="#000"
+                        android:textSize="18sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333D5E"
+                        android:text="correo"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:padding="4dp">
+
+                <at.markushi.ui.CircleButton
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+
+                    android:layout_gravity="center"
+                    app:cb_pressedRingWidth="8dp"
+                    android:src="@drawable/parents_icon"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/tv_name_cb"
+
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/tv_github_cb"
+                        android:textColor="#000"
+                        android:textSize="18sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333D5E"
+                        android:text="correo"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:padding="4dp">
+
+                <at.markushi.ui.CircleButton
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+
+                    android:layout_gravity="center"
+                    app:cb_pressedRingWidth="8dp"
+                    android:src="@drawable/parents_icon"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/tv_name_xf"
+
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/tv_github_xf"
+                        android:textColor="#000"
+                        android:textSize="18sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333D5E"
+                        android:text="@string/tv_mail_xf"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:textStyle="italic"
+            android:text="La motivación de esta app fue por realizar un proyecto de la materia 'Programación de dispositivos móviles' impartida en la Universidad Centroamericana José Simeón Cañas UCA. "/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="right
+">
+
+            <Button
+                android:id="@+id/btn_inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:text="Volver a Inicio" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </FrameLayout>
