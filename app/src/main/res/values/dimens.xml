@@ -8,4 +8,5 @@
     <dimen name="small_margin">8dp</dimen>
     <dimen name="medium_margim">16dp</dimen>
     <dimen name="medium_margin">16dp</dimen>
+    <dimen name="big_margin">32dp</dimen>
 </resources>
