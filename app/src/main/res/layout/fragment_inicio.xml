@@ -8,76 +8,138 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:alpha="0.2"
+        android:alpha="0.6"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient_bg_home"
-        />
+        android:background="@drawable/gradient_bg_home" />
 
 
     <LinearLayout
         android:orientation="vertical"
+        android:layout_margin="@dimen/small_margin"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <at.markushi.ui.CircleButton
-            android:id="@+id/btn_parents"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            app:cb_color="#FF0000"
-
-            android:layout_gravity="center"
-            app:cb_pressedRingWidth="16dp"
-            android:src="@drawable/parents_icon"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Padres"
-            android:layout_gravity="center"
-            android:textColor="#000"
-            android:textSize="18sp"
-            />
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
-        <at.markushi.ui.CircleButton
-            android:id="@+id/btn_games"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            app:cb_color="#F8FF00"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            app:cb_pressedRingWidth="16dp"
-            android:src="@drawable/games_icon"/>
-
-        <TextView
+            <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Juegos"
-            android:layout_gravity="center"
-            android:textColor="#000"
-            android:textSize="18sp"
-            />
+                android:layout_margin="@dimen/medium_margin">
 
-        <at.markushi.ui.CircleButton
-            android:id="@+id/btn_about"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            app:cb_color="#00D3FF"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            app:cb_pressedRingWidth="16dp"
-            android:src="@drawable/about_icon"/>
+            <at.markushi.ui.CircleButton
+                android:id="@+id/btn_parents"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                app:cb_color="#FF0000"
 
-        <TextView
+                android:layout_gravity="center"
+                app:cb_pressedRingWidth="16dp"
+                android:src="@drawable/parents_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Padres"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Acerca de"
-            android:layout_gravity="center"
-            android:textColor="#000"
-            android:textSize="18sp"
-            />
+            android:orientation="vertical"
+            android:layout_margin="@dimen/medium_margin">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/btn_games"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                app:cb_color="#F8FF00"
+                android:layout_gravity="center"
+                app:cb_pressedRingWidth="16dp"
+                android:src="@drawable/games_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Juegos"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/medium_margin">
+
+                <at.markushi.ui.CircleButton
+                    android:id="@+id/btn_about"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:cb_color="#00D3FF"
+                    android:layout_gravity="center"
+                    app:cb_pressedRingWidth="16dp"
+                    android:src="@drawable/about_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acerca de"
+                    android:layout_gravity="center"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/medium_margin">
+
+                <at.markushi.ui.CircleButton
+                    android:id="@+id/btn_help"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:cb_color="#FD019D"
+                    android:layout_gravity="center"
+                    app:cb_pressedRingWidth="16dp"
+                    android:src="@drawable/help_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ayuda"
+                    android:layout_gravity="center"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-
 </FrameLayout>
+
