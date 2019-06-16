@@ -8,7 +8,11 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="5" />
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_margin="@dimen/medium_margin"
+        android:text="Digitar para que sirve nuestra app, en que ayudara al nino, como cual es el objetivo de nuestra app" />
+
 
 </FrameLayout>
