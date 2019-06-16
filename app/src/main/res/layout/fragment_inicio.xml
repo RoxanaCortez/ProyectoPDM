@@ -79,7 +79,7 @@
                 app:cb_color="#F8FF00"
                 android:layout_gravity="center"
                 app:cb_pressedRingWidth="16dp"
-                android:src="@drawable/games_icon"/>
+                android:src="@drawable/games1_icon"/>
 
             <TextView
                 android:layout_width="wrap_content"
