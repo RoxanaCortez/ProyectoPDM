@@ -8,4 +8,11 @@
     <string name="section_format">Hello from section : %1$d</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="tv_name_cb">Carlos Beltrán</string>
+    <string name="tv_name_rc">Roxana Cortéz</string>
+    <string name="tv_name_xf">Xavier Figueroa</string>
+    <string name="tv_github_cb">CarlosBeltranP en Github</string>
+    <string name="tv_github_xf">Xavizardon on Github</string>
+    <string name="tv_github_rc">RoxanaCortez en Github</string>
+    <string name="tv_mail_xf">xavi_figso@hotmail.com</string>
 </resources>
