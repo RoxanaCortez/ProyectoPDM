@@ -14,8 +14,11 @@
     <!--No eliminar este boton solo editarlo es para regresar al inicio-->
     <Button
         android:id="@+id/btn_inicio"
-        android:layout_width="wrap_content"
-        android:layout_height="125dp"
-        android:text="Inicio" />
+        android:layout_width="200dp"
+        android:background="@drawable/rounded_shape"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#fff"
+        android:text="Inicio"/>
 
 </FrameLayout>
