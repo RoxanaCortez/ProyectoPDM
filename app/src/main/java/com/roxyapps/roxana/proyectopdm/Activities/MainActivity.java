@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     @Override
     public void InicioAbout() {
+        Toast.makeText(getApplicationContext(),"Inicio About desde Main",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void InicioHelp() {
         Intent intent = new Intent(this, ContenedorInstrucciones.class);
         startActivity(intent);
     }

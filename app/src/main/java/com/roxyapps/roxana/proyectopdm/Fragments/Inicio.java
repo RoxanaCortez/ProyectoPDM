@@ -36,7 +36,7 @@ public class Inicio extends Fragment {
 
     View vista;
     Activity actividad;
-    CircleButton parents_btn, games_btn, about_btn;
+    CircleButton parents_btn, games_btn, about_btn, help_btn;
     ComunicaFragments interfaceComunicaFragments;
 
     public Inicio() {
@@ -79,10 +79,12 @@ public class Inicio extends Fragment {
         parents_btn = vista.findViewById(R.id.btn_parents);
         games_btn = vista.findViewById(R.id.btn_games);
         about_btn = vista.findViewById(R.id.btn_about);
+        help_btn = vista.findViewById(R.id.btn_help);
 
         parents_btn.setOnClickListener(clickListener);
         games_btn.setOnClickListener(clickListener);
         about_btn.setOnClickListener(clickListener);
+        help_btn.setOnClickListener(clickListener);
 
         return vista;
     }
@@ -141,6 +143,9 @@ public class Inicio extends Fragment {
                     break;
                 case R.id.btn_about:
                     interfaceComunicaFragments.InicioAbout();
+                    break;
+                case R.id.btn_help:
+                    interfaceComunicaFragments.InicioHelp();
                     break;
             }
         }
