@@ -10,17 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
 import com.roxyapps.roxana.proyectopdm.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link InstruccionFinal.OnFragmentInteractionListener} interface
+ * {@link About.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link InstruccionFinal#newInstance} factory method to
+ * Use the {@link About#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InstruccionFinal extends Fragment {
+public class About extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,13 +31,13 @@ public class InstruccionFinal extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button home_btn;
+    private OnFragmentInteractionListener mListener;
+
+    Button inicio_btn;
     View vista;
     Activity actividad;
 
-    private OnFragmentInteractionListener mListener;
-
-    public InstruccionFinal() {
+    public About() {
         // Required empty public constructor
     }
 
@@ -46,11 +47,11 @@ public class InstruccionFinal extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InstruccionFinal.
+     * @return A new instance of fragment About.
      */
     // TODO: Rename and change types and number of parameters
-    public static InstruccionFinal newInstance(String param1, String param2) {
-        InstruccionFinal fragment = new InstruccionFinal();
+    public static About newInstance(String param1, String param2) {
+        About fragment = new About();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,17 +72,16 @@ public class InstruccionFinal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        vista = inflater.inflate(R.layout.fragment_instruccion_final, container, false);
+        vista = inflater.inflate(R.layout.fragment_about, container, false);
 
-        home_btn= vista.findViewById(R.id.btn_home);
+        inicio_btn= vista.findViewById(R.id.btn_inicio);
 
-        home_btn.setOnClickListener(new View.OnClickListener() {
+        inicio_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 actividad.finish();
             }
         });
-
         return vista;
     }
 

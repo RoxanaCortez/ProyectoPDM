@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.roxyapps.roxana.proyectopdm.Fragments.About;
 import com.roxyapps.roxana.proyectopdm.Fragments.Inicio;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
 import com.roxyapps.roxana.proyectopdm.R;
@@ -42,12 +43,13 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     @Override
     public void InicioAbout() {
-        Toast.makeText(getApplicationContext(),"Inicio About desde Main",Toast.LENGTH_SHORT).show();
+        Intent intent_about = new Intent(this, AboutContenedor.class);
+        startActivity(intent_about);
     }
 
     @Override
     public void InicioHelp() {
-        Intent intent = new Intent(this, ContenedorInstrucciones.class);
-        startActivity(intent);
+        Intent intent_help = new Intent(this, ContenedorInstrucciones.class);
+        startActivity(intent_help);
     }
 }
