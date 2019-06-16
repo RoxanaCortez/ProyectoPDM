@@ -8,7 +8,11 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="4" />
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_margin="@dimen/medium_margin"
+        android:text="OBJETIVOS DE JUEGOS \n\n 1. COMPLETA PALABRAS: \nEl juego consiste en tener un fragmento de una palabra de manera fija y diferentes opciones de silabas que pueden completar la dicho fragmento de palabra. Se deberá elegir la silaba correcta para poder avanzar más y tener mayor puntaje. \n\n2. MEMORIA: \nEs el clasico juego de memoria en donde aparecen distintas cartas boca abajo y cada una tendra un caracter en ella. Se intenta que el paciente recuerde la figura de la que se vio en una carta al voltearla y juntarla con su homóloga. "  />
+
 
 </FrameLayout>
