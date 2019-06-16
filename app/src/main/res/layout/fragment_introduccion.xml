@@ -1,60 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Introduccion"
-    android:background="@drawable/gradient_bg_help">
+    tools:context=".Fragments.Introduccion">
 
-     <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-         app:cardCornerRadius="@dimen/small_margin"
-         android:clickable="true"
-         android:foreground="?android:attr/selectableItemBackground"
-
-            android:layout_margin="32dp"
-         android:elevation="24dp">
-
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical">
-
-             <ImageView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:background="@drawable/intro2_icon"
-                 android:layout_gravity="center"
-                 android:layout_marginTop="32dp"
-                 android:layout_marginBottom="@dimen/medium_margin"
-                 />
-
-             <TextView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_margin="@dimen/medium_margin"
-                 android:text="Digitar que es la dislexia? porque se da? tipos? como tratarlo? (por ejemplo los ejrcicios asi como los juegos nuestros)etc.. "
-                 android:textColor="#646464"
-                 android:textStyle="bold"
-                 android:lines="10"
-                 android:textSize="18sp"
-                 app:fontFamily="@font/advent_pro" />
-
-
-         </LinearLayout>
-
-
-
-
-
-
-        </android.support.v7.widget.CardView>
-
-
-
-
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_margin="@dimen/medium_margin"
+        android:text="¿Qué es la Dislexia?\n\n
+        Dislexia es una dificultad de aprendizaje diagnosticada en donde se ven afectadas la capacidad de lectura y la escritura.\n\n
+        Siendo esta, solo la dificultad, es común que los pacientes no presenten ninguna discapacidad fisica, motriz, visual o de otro tipo.\n\n
+        Las señales mas comunes en dislexia son la constante confusion entre caracteres similares y difultad de escribir de manera correcta estos." />
 
 </FrameLayout>

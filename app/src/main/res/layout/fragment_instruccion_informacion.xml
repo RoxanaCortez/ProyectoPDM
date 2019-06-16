@@ -12,7 +12,7 @@
         android:textSize="18sp"
         android:textColor="#000"
         android:layout_margin="@dimen/medium_margin"
-        android:text="Digitar para que sirve nuestra app, en que ayudara al nino, como cual es el objetivo de nuestra app" />
+        android:text="*'cue nombre de la aplicacion'* \n\nOBJETIVO:\nLa app esta dieñada para que niños con dislexia puedan tener un una alternativa de juegos que les ayude con su dificultad; cuenta con un seguimiento de progresos para mantener informados a los padres y tambien del tiempo de uso que se le da en los juegos. \n\nSe busca que el niño pueda diferenciar entre como se escriben palabras de manera correcta e incorrecta y poder distinguir ciertos caracteres de otros." />
 
 
 </FrameLayout>
