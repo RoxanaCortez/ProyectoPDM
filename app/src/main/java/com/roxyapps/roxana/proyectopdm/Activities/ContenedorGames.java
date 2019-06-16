@@ -1,5 +1,6 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +8,14 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.roxyapps.roxana.proyectopdm.Fragments.Games;
+import com.roxyapps.roxana.proyectopdm.Fragments.WordsInstructions;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
-public class ContenedorGames extends AppCompatActivity implements ComunicaGames, Games.OnFragmentInteractionListener{
+public class ContenedorGames extends AppCompatActivity implements ComunicaGames, Games.OnFragmentInteractionListener,
+        WordsInstructions.OnFragmentInteractionListener{
 
-    Fragment fragmentGames;
+    Fragment fragmentGames, fragmentWordInstruccion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
         setContentView(R.layout.activity_contenedor_games);
 
         fragmentGames = new Games();
+        fragmentWordInstruccion = new WordsInstructions();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentGames).commit();
     }
@@ -36,6 +40,8 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
 
     @Override
     public void InicioWords() {
-        Toast.makeText(getApplicationContext(),"Inicio Words desde el contenedor games",Toast.LENGTH_SHORT).show();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentWordInstruccion).commit();
     }
+
 }
