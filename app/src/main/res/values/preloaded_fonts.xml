@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/advent_pro</item>
         <item>@font/bree_serif</item>
+        <item>@font/original_surfer</item>
         <item>@font/sofadi_one</item>
     </array>
 </resources>
