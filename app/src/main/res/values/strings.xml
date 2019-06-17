@@ -11,9 +11,9 @@
     <string name="tv_name_cb">Carlos Beltrán</string>
     <string name="tv_name_rc">Roxana Cortéz</string>
     <string name="tv_name_xf">Xavier Figueroa</string>
-    <string name="tv_github_cb">CarlosBeltranP en Github</string>
-    <string name="tv_github_xf">Xavizardon on Github</string>
-    <string name="tv_github_rc">RoxanaCortez en Github</string>
+    <string name="tv_github_cb">CarlosBeltranP</string>
+    <string name="tv_github_xf">Xavizardon</string>
+    <string name="tv_github_rc">RoxanaCortez</string>
     <string name="tv_mail_xf">xavi_figso@hotmail.com</string>
 
     //Frutas

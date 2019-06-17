@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/gradient_bluelight"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".Fragments.About">
 
     <!-- TODO: Update blank fragment layout -->
@@ -16,45 +18,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000"
+            android:fontFamily="@font/advent_pro"
             android:layout_margin="8dp"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:text="Desarrollado por:"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
                 android:orientation="horizontal"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:padding="4dp">
 
-                <at.markushi.ui.CircleButton
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
-                    app:cb_pressedRingWidth="8dp"
-                    android:src="@drawable/parents_icon"/>
+                    android:src="@mipmap/ic_launcher"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="20dp">
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:layout_margin="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tv_name_rc"
-
+                        android:fontFamily="@font/advent_pro"
                         android:textColor="#000"
                         android:textStyle="bold"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         />
 
                     <TextView
@@ -62,16 +67,27 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="@string/tv_github_rc"
-                        android:textColor="#000"
-                        android:textSize="18sp"
+                        android:fontFamily="@font/advent_pro"
+                        android:textColor="@color/darkgray"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:drawableStart="@drawable/github_icon"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:drawableLeft="@drawable/github_icon"
+                        android:textSize="14sp"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#333D5E"
-                        android:text="correo"
-                        android:textSize="18sp"
+                        android:textColor="@color/darkgray"
+                        android:fontFamily="@font/advent_pro"
+                        android:text="roxana.poncita@gmail.com"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:drawableLeft="@drawable/gmail_icon"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:textSize="14sp"
                         />
 
                 </LinearLayout>
@@ -79,35 +95,37 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="1"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_gravity="center"
                 android:padding="4dp">
 
-                <at.markushi.ui.CircleButton
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
-                    app:cb_pressedRingWidth="8dp"
-                    android:src="@drawable/parents_icon"/>
+                    android:src="@mipmap/ic_launcher"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="20dp">
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:layout_margin="@dimen/small_margin"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tv_name_cb"
-
+                        android:fontFamily="@font/advent_pro"
                         android:textColor="#000"
                         android:textStyle="bold"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         />
 
                     <TextView
@@ -115,16 +133,26 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="@string/tv_github_cb"
-                        android:textColor="#000"
-                        android:textSize="18sp"
+                        android:drawableLeft="@drawable/github_icon"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/advent_pro"
+                        android:textColor="@color/darkgray"
+                        android:textSize="14sp"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#333D5E"
-                        android:text="correo"
-                        android:textSize="18sp"
+                        android:textColor="@color/darkgray"
+                        android:text="carlos.ebponce@gmail.com"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:drawableLeft="@drawable/gmail_icon"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:fontFamily="@font/advent_pro"
+                        android:textSize="14sp"
                         />
 
                 </LinearLayout>
@@ -132,35 +160,36 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:padding="4dp">
 
-                <at.markushi.ui.CircleButton
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
-                    app:cb_pressedRingWidth="8dp"
-                    android:src="@drawable/parents_icon"/>
+                    android:src="@mipmap/ic_launcher"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="20dp">
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:layout_margin="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tv_name_xf"
-
+                        android:fontFamily="@font/advent_pro"
                         android:textColor="#000"
                         android:textStyle="bold"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         />
 
                     <TextView
@@ -168,16 +197,26 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="@string/tv_github_xf"
-                        android:textColor="#000"
-                        android:textSize="18sp"
+                        android:drawableLeft="@drawable/github_icon"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:fontFamily="@font/advent_pro"
+                        android:textColor="@color/darkgray"
+                        android:textSize="14sp"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#333D5E"
+                        android:textColor="@color/darkgray"
+                        android:fontFamily="@font/advent_pro"
+                        android:drawablePadding="@dimen/small_margin"
+                        android:drawableLeft="@drawable/gmail_icon"
+                        android:textAlignment="center"
+                        android:gravity="center"
                         android:text="@string/tv_mail_xf"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         />
 
                 </LinearLayout>
@@ -186,32 +225,37 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:layout_margin="20dp"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:textStyle="italic"
-            android:text="La motivación de esta app fue por realizar un proyecto de la materia 'Programación de dispositivos móviles' impartida en la Universidad Centroamericana José Simeón Cañas UCA. "/>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="right
-">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_marginRight="@dimen/medium_margin"
+                android:fontFamily="@font/advent_pro"
+                android:text="La motivación de esta app fue por realizar un proyecto de la materia 'Programación de dispositivos móviles' impartida en la Universidad Centroamericana 'José Simeón Cañas' UCA. "
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
 
             <Button
                 android:id="@+id/btn_inicio"
                 android:layout_width="200dp"
-                android:background="@drawable/rounded_shape"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/rounded_shape_bluelight"
+                android:text="Inicio"
+                android:textAllCaps="false"
                 android:textColor="#fff"
-                android:text="Inicio"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 
