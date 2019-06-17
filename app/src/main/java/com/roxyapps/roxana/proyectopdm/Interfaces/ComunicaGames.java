@@ -4,4 +4,5 @@ public interface ComunicaGames {
 
     public void InicioMemory();
     public void InicioWords();
+    public void InicioPlay();
 }

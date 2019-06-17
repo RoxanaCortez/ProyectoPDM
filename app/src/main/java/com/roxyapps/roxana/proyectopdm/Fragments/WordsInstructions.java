@@ -75,14 +75,12 @@ public class WordsInstructions extends Fragment {
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_words_instructions, container, false);
 
-        homeWordI_btn= vista.findViewById(R.id.btn_homeWordI);
+        homeWordI_btn = vista.findViewById(R.id.btn_homeWordI);
+        play_btn = vista.findViewById(R.id.btn_play);
 
-        homeWordI_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actividad.finish();
-            }
-        });
+        homeWordI_btn.setOnClickListener(clickListener);
+        play_btn.setOnClickListener(clickListener);
+
         return vista;
     }
 
@@ -127,4 +125,18 @@ public class WordsInstructions extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_homeWordI:
+                    actividad.finish();
+                    break;
+                case R.id.btn_play:
+                    comunica.InicioPlay();
+                    break;
+            }
+        }
+    };
 }

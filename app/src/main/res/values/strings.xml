@@ -15,4 +15,25 @@
     <string name="tv_github_xf">Xavizardon on Github</string>
     <string name="tv_github_rc">RoxanaCortez en Github</string>
     <string name="tv_mail_xf">xavi_figso@hotmail.com</string>
+
+    //Frutas
+    <string name="manzana">MAN__NA</string>
+    <string name="aguacate">AGUA__TE</string>
+    <string name="banana">__NANA</string>
+    <string name="arandano">A___DANO</string>
+    <string name="brocoli">___COLI</string>
+    <string name="zanahoria">ZANA__RIA</string>
+    <string name="cereza">__REZA</string>
+    <string name="elote">_LOTE</string>
+    <string name="uvas">U___</string>
+    <string name="limon">LI___</string>
+    <string name="lechuga">LE___GA</string>
+    <string name="mango">___GO</string>
+    <string name="hongos">___GOS</string>
+    <string name="naranja">__RANJA</string>
+    <string name="sandia">SAN__A</string>
+    <string name="tomate">FRE___</string>
+    <string name="fresas">__ATE</string>
+    <string name="papa">PA__</string>
+    <string name="piña">PI__</string>
 </resources>

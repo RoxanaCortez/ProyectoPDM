@@ -44,4 +44,10 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentWordInstruccion).commit();
     }
 
+    @Override
+    public void InicioPlay() {
+        Intent intent_play = new Intent(this, WordsGame.class);
+        startActivity(intent_play);
+    }
+
 }
