@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.MemoryGame"></activity>
         <activity android:name=".Activities.WordsGame" />
         <activity android:name=".Activities.ContenedorGames" />
         <activity android:name=".Activities.AboutContenedor" />

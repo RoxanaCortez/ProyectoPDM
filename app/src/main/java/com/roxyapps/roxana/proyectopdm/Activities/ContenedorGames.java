@@ -8,14 +8,15 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.roxyapps.roxana.proyectopdm.Fragments.Games;
+import com.roxyapps.roxana.proyectopdm.Fragments.MemoryInstruccions;
 import com.roxyapps.roxana.proyectopdm.Fragments.WordsInstructions;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class ContenedorGames extends AppCompatActivity implements ComunicaGames, Games.OnFragmentInteractionListener,
-        WordsInstructions.OnFragmentInteractionListener{
+        WordsInstructions.OnFragmentInteractionListener, MemoryInstruccions.OnFragmentInteractionListener{
 
-    Fragment fragmentGames, fragmentWordInstruccion;
+    Fragment fragmentGames, fragmentWordInstruccion, fragmentMemoryInstruccion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
 
         fragmentGames = new Games();
         fragmentWordInstruccion = new WordsInstructions();
+        fragmentMemoryInstruccion = new MemoryInstruccions();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentGames).commit();
     }
@@ -35,7 +37,7 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
 
     @Override
     public void InicioMemory() {
-        Toast.makeText(getApplicationContext(),"Inicio Memory desde el contenedor games",Toast.LENGTH_SHORT).show();
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentMemoryInstruccion).commit();
     }
 
     @Override
@@ -48,6 +50,12 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
     public void InicioPlay() {
         Intent intent_play = new Intent(this, WordsGame.class);
         startActivity(intent_play);
+    }
+
+    @Override
+    public void InicioPlayMemory() {
+        Intent intent_playMemory = new Intent(this, MemoryGame.class);
+        startActivity(intent_playMemory);
     }
 
 }
