@@ -18,12 +18,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="410dp"
+            android:padding="@dimen/medium_margin"
             android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/intro2_icon"
+                android:background="@drawable/intro_icon"
                 android:layout_gravity="center"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="@dimen/medium_margin"
@@ -41,7 +42,7 @@
                     android:textColor="@color/darkgray"
                     android:textStyle="bold"
                     android:fontFamily="@font/advent_pro"
-                    android:layout_margin="@dimen/medium_margin"
+
                     android:text="¿Qué es la Dislexia?\n\n
                     Dislexia es una dificultad de aprendizaje diagnosticada en donde se ven afectadas la capacidad de lectura y la escritura.\n\n
                     Siendo esta, solo la dificultad, es común que los pacientes no presenten ninguna discapacidad fisica, motriz, visual o de otro tipo.\n\n
