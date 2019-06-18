@@ -79,7 +79,7 @@
                         android:fontFamily="@font/bree_serif"
                         android:textSize="20sp"
                         android:textColor="#000"
-                        android:text="Toca una tarjeta y memoriza el animal. Luego, toca otra tarjeta hasta encontrar el mismo animal. Encuantralos todos!"/>
+                        android:text="Toca una tarjeta y memoriza el animal. Luego, toca otra tarjeta hasta encontrar el mismo animal. Encuentralos todos!"/>
 
                     <!--Botones de uso no eliminar solo editar -->
 

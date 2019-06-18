@@ -37,7 +37,6 @@
         android:textStyle="bold"
         android:fontFamily="@font/bree_serif"
         android:textColor="#E4C906"
-        android:shadowColor="#C68700"
         android:shadowDx="6"
         android:shadowDy="7"
         android:shadowRadius="5"
