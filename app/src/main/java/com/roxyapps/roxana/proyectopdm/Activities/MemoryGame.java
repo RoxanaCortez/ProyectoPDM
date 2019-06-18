@@ -4,7 +4,9 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.roxyapps.roxana.proyectopdm.R;
@@ -14,20 +16,29 @@ public class MemoryGame extends AppCompatActivity {
     ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
             imagen12, imagen13, imagen14, imagen15, imagen16;
 
-    private int imagenes[] = {R.drawable.pineapple_icon, R.drawable.potato_icon, R.drawable.watermelon_icon,
-            R.drawable.orange_icon, R.drawable.mango_icon, R.drawable.letucce_icon, R.drawable.grape_icon, R.drawable.cherry_icon};
+    private TextView parejas, puntos;
+
+    private Button terminar;
+
+    private int imagenes[] = {R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
+            R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon};
 
     private int cartas [] = new int[16];
     private int cartas_seleccionadas [] = new int[2];
     private int  imagenes_seleccionadas [] = new int[2];
     private int cartas_final []= new int[16];
     int turno = 0, ganador=0;
+    private int  numero = 0, numero2 = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+
+        parejas = findViewById(R.id.txt_numparejas);
+        puntos = findViewById(R.id.txt_numpuntos);
+        terminar = findViewById(R.id.btn_terminar);
 
         imagen1 = findViewById(R.id.img1);
         imagen2 = findViewById(R.id.img2);
@@ -63,6 +74,8 @@ public class MemoryGame extends AppCompatActivity {
         imagen15.setOnClickListener(clickListener);
         imagen16.setOnClickListener(clickListener);
 
+        terminar.setOnClickListener(clickListener);
+
         if(savedInstanceState == null){
             colocarImagenes();
             for (int i=0;i<16;i++){
@@ -96,28 +109,24 @@ public class MemoryGame extends AppCompatActivity {
                     imagenes_seleccionadas[turno] = cartas[0];
                     cartas_seleccionadas[turno] = 0;
                     imagen1.setEnabled(false);
-
                     break;
                 case R.id.img2:
                     imagen2.setImageResource(cartas[1]);
                     imagenes_seleccionadas[turno] = cartas[1];
                     cartas_seleccionadas[turno] = 1;
                     imagen2.setEnabled(false);
-
                     break;
                 case R.id.img3:
                     imagen3.setImageResource(cartas[2]);
                     imagenes_seleccionadas[turno] = cartas[2];
                     cartas_seleccionadas[turno] = 2;
                     imagen3.setEnabled(false);
-
                     break;
                 case R.id.img4:
                     imagen4.setImageResource(cartas[3]);
                     imagenes_seleccionadas[turno] = cartas[3];
                     cartas_seleccionadas[turno] = 3;
                     imagen4.setEnabled(false);
-
                     break;
                 case R.id.img5:
                     imagen5.setImageResource(cartas[4]);
@@ -191,13 +200,16 @@ public class MemoryGame extends AppCompatActivity {
                     cartas_seleccionadas[turno] = 15;
                     imagen16.setEnabled(false);
                     break;
+                case R.id.btn_terminar:
+                    //
+                    Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    break;
             }
-            if (turno == 0) {
+            if(turno == 0){
                 turno = 1;
-            } else {
+            }else {
                 new Secuencia().execute();
                 turno = 0;
-
             }
         }
     };
@@ -243,60 +255,63 @@ public class MemoryGame extends AppCompatActivity {
                 cartas_final[cartas_seleccionadas[0]] = 1;
                 cartas_final[cartas_seleccionadas[1]] = 1;
 
+                parejas.setText(++numero+"/8");
+                puntos.setText(++numero2+"");
                 ganador++;
+
                 if (ganador == 8) {
                     Toast.makeText(getApplicationContext(), "!Encontro las n parejas¡", Toast.LENGTH_SHORT).show();
                 }
             }if (cartas_final[0] == 0) {
-                imagen1.setImageResource(R.drawable.about_icon);
+                imagen1.setImageResource(R.drawable.carta_icon);
                 imagen1.setEnabled(true);
             }if (cartas_final[1] == 0) {
-                imagen2.setImageResource(R.drawable.about_icon);
+                imagen2.setImageResource(R.drawable.carta_icon);
                 imagen2.setEnabled(true);
             }if (cartas_final[2] == 0) {
-                imagen3.setImageResource(R.drawable.about_icon);
+                imagen3.setImageResource(R.drawable.carta_icon);
                 imagen3.setEnabled(true);
             }if (cartas_final[3] == 0) {
-                imagen4.setImageResource(R.drawable.about_icon);
+                imagen4.setImageResource(R.drawable.carta_icon);
                 imagen4.setEnabled(true);
             }if (cartas_final[4] == 0) {
-                imagen5.setImageResource(R.drawable.about_icon);
+                imagen5.setImageResource(R.drawable.carta_icon);
                 imagen5.setEnabled(true);
             }if (cartas_final[5] == 0) {
-                imagen6.setImageResource(R.drawable.about_icon);
+                imagen6.setImageResource(R.drawable.carta_icon);
                 imagen6.setEnabled(true);
             }if (cartas_final[6] == 0) {
-                imagen7.setImageResource(R.drawable.about_icon);
+                imagen7.setImageResource(R.drawable.carta_icon);
                 imagen7.setEnabled(true);
             }if (cartas_final[7] == 0) {
-                imagen8.setImageResource(R.drawable.about_icon);
+                imagen8.setImageResource(R.drawable.carta_icon);
                 imagen8.setEnabled(true);
             }if (cartas_final[8] == 0) {
-                imagen9.setImageResource(R.drawable.about_icon);
+                imagen9.setImageResource(R.drawable.carta_icon);
                 imagen9.setEnabled(true);
             }if (cartas_final[9] == 0) {
-                imagen10.setImageResource(R.drawable.about_icon);
+                imagen10.setImageResource(R.drawable.carta_icon);
                 imagen10.setEnabled(true);
             }if (cartas_final[10] == 0) {
-                imagen11.setImageResource(R.drawable.about_icon);
+                imagen11.setImageResource(R.drawable.carta_icon);
                 imagen11.setEnabled(true);
             }if (cartas_final[11] == 0) {
-                imagen12.setImageResource(R.drawable.about_icon);
+                imagen12.setImageResource(R.drawable.carta_icon);
                 imagen12.setEnabled(true);
             }if (cartas_final[12] == 0) {
-                imagen13.setImageResource(R.drawable.about_icon);
+                imagen13.setImageResource(R.drawable.carta_icon);
                 imagen13.setEnabled(true);
             }if (cartas_final[13] == 0) {
-                imagen14.setImageResource(R.drawable.about_icon);
+                imagen14.setImageResource(R.drawable.carta_icon);
                 imagen14.setEnabled(true);
             }if (cartas_final[14] == 0) {
-                imagen15.setImageResource(R.drawable.about_icon);
+                imagen15.setImageResource(R.drawable.carta_icon);
                 imagen15.setEnabled(true);
             }if (cartas_final[15] == 0) {
-                imagen16.setImageResource(R.drawable.about_icon);
+                imagen16.setImageResource(R.drawable.carta_icon);
                 imagen16.setEnabled(true);
             }
-            cartas_final[0] = 16;
+            cartas_seleccionadas[0] = 16;
         }
     }
 
@@ -370,5 +385,5 @@ public class MemoryGame extends AppCompatActivity {
             imagen16.setImageResource(cartas[15]);
             imagen16.setEnabled(false);
         }
-    };
+    }
 }
