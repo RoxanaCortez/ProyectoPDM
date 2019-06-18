@@ -1,12 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Activities.MemoryGame">
+    tools:context=".Activities.MemoryGame"
+    android:background="@drawable/gradient_green">
+
+
+
+    <ImageView
+        android:layout_width="410dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center|right"
+        android:background="@drawable/mountains2_icon"/>
+
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/giraffe2_icon"
+        android:layout_marginBottom="130dp"
+        android:layout_gravity="bottom|left"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/grass_icon"
+        android:layout_gravity="bottom|left"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/grass_icon"
+        android:layout_gravity="bottom|right"/>
+
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/palm2_icon"
+        android:layout_gravity="bottom|right"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/monkey2_icon"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        />
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/grass1_icon"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/bee2_icon"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/flower_icon"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/flower2_icon"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/flower_icon"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/banana3_icon"/>
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|left"
+        android:background="@drawable/grass3_icon"/>
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/clouds_icon"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|right"
+        android:background="@drawable/clouds_icon"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -275,4 +392,6 @@
         android:layout_height="wrap_content"
         android:text="terminar"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
