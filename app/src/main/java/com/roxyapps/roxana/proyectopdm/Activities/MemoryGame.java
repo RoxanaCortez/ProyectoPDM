@@ -4,7 +4,9 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.roxyapps.roxana.proyectopdm.R;
@@ -14,6 +16,10 @@ public class MemoryGame extends AppCompatActivity {
     ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
             imagen12, imagen13, imagen14, imagen15, imagen16;
 
+    private TextView parejas, puntos;
+
+    private Button terminar;
+
     private int imagenes[] = {R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
             R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon};
 
@@ -22,12 +28,17 @@ public class MemoryGame extends AppCompatActivity {
     private int  imagenes_seleccionadas [] = new int[2];
     private int cartas_final []= new int[16];
     int turno = 0, ganador=0;
+    private int  numero = 0, numero2 = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+
+        parejas = findViewById(R.id.txt_numparejas);
+        puntos = findViewById(R.id.txt_numpuntos);
+        terminar = findViewById(R.id.btn_terminar);
 
         imagen1 = findViewById(R.id.img1);
         imagen2 = findViewById(R.id.img2);
@@ -62,6 +73,8 @@ public class MemoryGame extends AppCompatActivity {
         imagen14.setOnClickListener(clickListener);
         imagen15.setOnClickListener(clickListener);
         imagen16.setOnClickListener(clickListener);
+
+        terminar.setOnClickListener(clickListener);
 
         if(savedInstanceState == null){
             colocarImagenes();
@@ -187,6 +200,10 @@ public class MemoryGame extends AppCompatActivity {
                     cartas_seleccionadas[turno] = 15;
                     imagen16.setEnabled(false);
                     break;
+                case R.id.btn_terminar:
+                    //
+                    Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    break;
             }
             if(turno == 0){
                 turno = 1;
@@ -238,7 +255,10 @@ public class MemoryGame extends AppCompatActivity {
                 cartas_final[cartas_seleccionadas[0]] = 1;
                 cartas_final[cartas_seleccionadas[1]] = 1;
 
+                parejas.setText(++numero+"/8");
+                puntos.setText(++numero2+"");
                 ganador++;
+
                 if (ganador == 8) {
                     Toast.makeText(getApplicationContext(), "!Encontro las n parejas¡", Toast.LENGTH_SHORT).show();
                 }
