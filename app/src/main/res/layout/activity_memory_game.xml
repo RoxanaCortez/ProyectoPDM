@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".Activities.MemoryGame">
 
     <GridLayout
-        android:layout_width="330dp"
-        android:layout_height="485dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_margin="8dp"
         android:columnCount="4"
         android:rowCount="4"
+        android:useDefaultMargins="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
@@ -29,7 +28,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img2"
@@ -40,7 +41,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon"/>
 
         <ImageView
             android:id="@+id/img3"
@@ -51,7 +54,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img4"
@@ -62,7 +67,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img5"
@@ -73,7 +80,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img6"
@@ -84,7 +93,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img7"
@@ -95,7 +106,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img8"
@@ -106,7 +119,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img9"
@@ -117,7 +132,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img10"
@@ -128,7 +145,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img11"
@@ -139,7 +158,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img12"
@@ -150,7 +171,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img13"
@@ -161,7 +184,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img14"
@@ -172,7 +197,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img15"
@@ -183,7 +210,9 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
 
         <ImageView
             android:id="@+id/img16"
@@ -194,6 +223,8 @@
             android:layout_gravity="fill|top"
             android:layout_margin="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/about_icon" />
+            android:background="@color/color_blue_light"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/carta_icon" />
     </GridLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
