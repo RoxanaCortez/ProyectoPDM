@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.roxyapps.roxana.proyectopdm.R;
 
@@ -15,7 +16,7 @@ public class WordsGame extends AppCompatActivity {
 
     private TextView puntostxt, numerotxt, frutatxt;
     private ImageView fruta;
-    private Button opcion1, opcion2, opcion3;
+    private Button opcion1, opcion2, opcion3, fin;
 
     private String selecciono, resultado ="";
     private int pntObtenido = 0, numFruta = 0, total1=0, total2=0;
@@ -26,6 +27,7 @@ public class WordsGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words_game);
 
+        fin = findViewById(R.id.btn_finalizar);
         puntostxt = findViewById(R.id.txt_num);
         numerotxt = findViewById(R.id.txt_pag);
         frutatxt = findViewById(R.id.txt_fruta);
@@ -37,6 +39,7 @@ public class WordsGame extends AppCompatActivity {
         opcion1.setOnClickListener(clickListener);
         opcion2.setOnClickListener(clickListener);
         opcion3.setOnClickListener(clickListener);
+        fin.setOnClickListener(clickListener);
 
         actualizarFruta();
     }
@@ -78,8 +81,8 @@ public class WordsGame extends AppCompatActivity {
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
                     }else{
-                        actualizarFruta(); }
-
+                        actualizarFruta();
+                    }
                     break;
                 case R.id.btn_opc2:
                     if(opcion2.getText() == selecciono){
@@ -87,8 +90,8 @@ public class WordsGame extends AppCompatActivity {
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
                     }else{
-                        actualizarFruta(); }
-
+                        actualizarFruta();
+                    }
                     break;
                 case R.id.btn_opc3:
                     if(opcion3.getText() == selecciono){
@@ -96,8 +99,11 @@ public class WordsGame extends AppCompatActivity {
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
                     }else{
-                        actualizarFruta();}
-
+                        actualizarFruta();
+                    }
+                    break;
+                case R.id.btn_finalizar:
+                    Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

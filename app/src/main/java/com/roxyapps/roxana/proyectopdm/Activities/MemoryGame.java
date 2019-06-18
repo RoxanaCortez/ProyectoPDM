@@ -201,7 +201,6 @@ public class MemoryGame extends AppCompatActivity {
                     imagen16.setEnabled(false);
                     break;
                 case R.id.btn_terminar:
-                    //
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
                     break;
             }
