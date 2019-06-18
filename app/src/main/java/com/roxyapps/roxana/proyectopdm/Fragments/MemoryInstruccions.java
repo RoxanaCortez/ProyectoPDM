@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
@@ -33,7 +34,8 @@ public class MemoryInstruccions extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    Button homeMemoryI_btn, playMemory_btn;
+    ImageButton homeMemoryI_btn;
+    Button playMemory_btn;
     View vista;
     Activity actividad;
     ComunicaGames comunica;
