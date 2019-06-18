@@ -15,33 +15,25 @@
         android:layout_width="410dp"
         android:layout_height="300dp"
         android:layout_gravity="center|right"
+        android:alpha="0.3"
         android:background="@drawable/mountains2_icon"/>
 
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:alpha="0.3"
         android:background="@drawable/giraffe2_icon"
         android:layout_marginBottom="130dp"
         android:layout_gravity="bottom|left"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@drawable/grass_icon"
-        android:layout_gravity="bottom|left"/>
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@drawable/grass_icon"
-        android:layout_gravity="bottom|right"/>
 
 
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:alpha="0.3"
         android:background="@drawable/palm2_icon"
         android:layout_gravity="bottom|right"
         />
@@ -49,22 +41,19 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:alpha="0.3"
         android:background="@drawable/monkey2_icon"
-        android:layout_gravity="bottom|center"
+        android:layout_gravity="bottom|right"
         android:layout_marginBottom="10dp"
         />
 
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="bottom|right"
-        android:background="@drawable/grass1_icon"/>
 
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom|left"
+        android:alpha="0.3"
         android:layout_marginBottom="100dp"
         android:background="@drawable/bee2_icon"/>
 
@@ -72,6 +61,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="bottom|left"
+        android:alpha="0.3"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/flower_icon"/>
@@ -80,30 +70,20 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="bottom|left"
+        android:alpha="0.3"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/flower2_icon"/>
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/flower_icon"/>
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|left"
-        android:layout_marginLeft="100dp"
-        android:background="@drawable/banana3_icon"/>
+
 
 
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:alpha="0.3"
         android:layout_gravity="bottom|left"
         android:background="@drawable/grass3_icon"/>
 
@@ -111,12 +91,14 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:alpha="0.3"
         android:layout_gravity="top|left"
         android:background="@drawable/clouds_icon"/>
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="top|right"
+        android:alpha="0.3"
         android:background="@drawable/clouds_icon"/>
 
     <LinearLayout
@@ -125,44 +107,75 @@
         android:orientation="vertical"
         android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:alpha="0.7"
+            android:gravity="center"
+            android:padding="@dimen/small_margin"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txt_parejas"
-            android:text="Parejas: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-        <TextView
-            android:id="@+id/txt_numparejas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"/>
+                <TextView
+                    android:id="@+id/txt_puntosparejas"
+                    android:text="Puntos: "
+                    android:layout_width="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#000"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/bree_serif"
+                    android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/txt_puntosparejas"
-            android:text="Puntos:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txt_numpuntos"
+                    android:text="0"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/bree_serif"
+                    android:textColor="#000"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/txt_numpuntos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"/>
+            </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_parejas"
+                    android:text="Parejas: "
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_numparejas"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="0"/>
+
+            </LinearLayout>
     </LinearLayout>
 
-
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top|center">
+
 
         <GridLayout
             android:layout_width="350dp"
@@ -183,9 +196,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -196,9 +209,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon"/>
 
@@ -209,9 +222,9 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -222,9 +235,9 @@
                 android:layout_column="3"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -235,9 +248,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -248,9 +261,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -261,9 +274,9 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -274,9 +287,9 @@
                 android:layout_column="3"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -287,9 +300,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -300,9 +313,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -313,9 +326,9 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -326,9 +339,9 @@
                 android:layout_column="3"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -339,9 +352,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -352,9 +365,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -365,9 +378,9 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
 
@@ -378,19 +391,30 @@
                 android:layout_column="3"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill|top"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:scaleType="fitXY"
-                android:background="@color/color_blue_light"
+                android:background="@drawable/rounded_corner_cards"
                 android:padding="@dimen/small_margin"
                 android:src="@drawable/carta_icon" />
         </GridLayout>
 
+
+
+        <Button
+            android:id="@+id/btn_terminar"
+            android:layout_width="200dp"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/bree_serif"
+            android:alpha="0.7"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_shape_lightbrown"
+            android:text="Terminar"/>
+
     </LinearLayout>
-    <Button
-        android:id="@+id/btn_terminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="terminar"/>
+
 
     </LinearLayout>
 

@@ -261,7 +261,7 @@ public class MemoryGame extends AppCompatActivity {
 
                 if (ganador == 8) {
                     Toast.makeText(getApplicationContext(), "!Encontro las n parejas¡", Toast.LENGTH_SHORT).show();
-                }
+                }//Aqui se van a a cambiar los iconos
             }if (cartas_final[0] == 0) {
                 imagen1.setImageResource(R.drawable.carta_icon);
                 imagen1.setEnabled(true);
