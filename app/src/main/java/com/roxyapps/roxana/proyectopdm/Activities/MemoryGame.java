@@ -2,8 +2,12 @@ package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +24,9 @@ import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class MemoryGame extends AppCompatActivity implements ComunicaGames, MemoryInstruccions.OnFragmentInteractionListener {
+
+    private SoundPool sonido;
+    private int click;
 
     private ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
             imagen12, imagen13, imagen14, imagen15, imagen16;
@@ -95,6 +102,19 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         terminar.setOnClickListener(clickListener);
         atras2.setOnClickListener(clickListener);
 
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1){
+            AudioAttributes audio = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+            sonido = new SoundPool.Builder()
+                    .setMaxStreams(6)
+                    .setAudioAttributes(audio).build();
+        }else{
+            sonido = new SoundPool(6, AudioManager.STREAM_MUSIC,0);
+        }
+        click = sonido.load(this, R.raw.click18c,1);
+
         if(savedInstanceState == null){
             colocarImagenes();
             for (int i=0;i<16;i++){
@@ -146,96 +166,112 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.img1:
+                    sonido.play(click,1,1,0,0,1);
                     imagen1.setImageResource(cartas[0]);
                     imagenes_seleccionadas[turno] = cartas[0];
                     cartas_seleccionadas[turno] = 0;
                     imagen1.setEnabled(false);
                     break;
                 case R.id.img2:
+                    sonido.play(click,1,1,0,0,1);
                     imagen2.setImageResource(cartas[1]);
                     imagenes_seleccionadas[turno] = cartas[1];
                     cartas_seleccionadas[turno] = 1;
                     imagen2.setEnabled(false);
                     break;
                 case R.id.img3:
+                    sonido.play(click,1,1,0,0,1);
                     imagen3.setImageResource(cartas[2]);
                     imagenes_seleccionadas[turno] = cartas[2];
                     cartas_seleccionadas[turno] = 2;
                     imagen3.setEnabled(false);
                     break;
                 case R.id.img4:
+                    sonido.play(click,1,1,0,0,1);
                     imagen4.setImageResource(cartas[3]);
                     imagenes_seleccionadas[turno] = cartas[3];
                     cartas_seleccionadas[turno] = 3;
                     imagen4.setEnabled(false);
                     break;
                 case R.id.img5:
+                    sonido.play(click,1,1,0,0,1);
                     imagen5.setImageResource(cartas[4]);
                     imagenes_seleccionadas[turno] = cartas[4];
                     cartas_seleccionadas[turno] = 4;
                     imagen5.setEnabled(false);
                     break;
                 case R.id.img6:
+                    sonido.play(click,1,1,0,0,1);
                     imagen6.setImageResource(cartas[5]);
                     imagenes_seleccionadas[turno] = cartas[5];
                     cartas_seleccionadas[turno] = 5;
                     imagen6.setEnabled(false);
                     break;
                 case R.id.img7:
+                    sonido.play(click,1,1,0,0,1);
                     imagen7.setImageResource(cartas[6]);
                     imagenes_seleccionadas[turno] = cartas[6];
                     cartas_seleccionadas[turno] = 6;
                     imagen7.setEnabled(false);
                     break;
                 case R.id.img8:
+                    sonido.play(click,1,1,0,0,1);
                     imagen8.setImageResource(cartas[7]);
                     imagenes_seleccionadas[turno] = cartas[7];
                     cartas_seleccionadas[turno] = 7;
                     imagen8.setEnabled(false);
                     break;
                 case R.id.img9:
+                    sonido.play(click,1,1,0,0,1);
                     imagen9.setImageResource(cartas[8]);
                     imagenes_seleccionadas[turno] = cartas[8];
                     cartas_seleccionadas[turno] = 8;
                     imagen9.setEnabled(false);
                     break;
                 case R.id.img10:
+                    sonido.play(click,1,1,0,0,1);
                     imagen10.setImageResource(cartas[9]);
                     imagenes_seleccionadas[turno] = cartas[9];
                     cartas_seleccionadas[turno] = 9;
                     imagen10.setEnabled(false);
                     break;
                 case R.id.img11:
+                    sonido.play(click,1,1,0,0,1);
                     imagen11.setImageResource(cartas[10]);
                     imagenes_seleccionadas[turno] = cartas[10];
                     cartas_seleccionadas[turno] = 10;
                     imagen11.setEnabled(false);
                     break;
                 case R.id.img12:
+                    sonido.play(click,1,1,0,0,1);
                     imagen12.setImageResource(cartas[11]);
                     imagenes_seleccionadas[turno] = cartas[11];
                     cartas_seleccionadas[turno] = 11;
                     imagen12.setEnabled(false);
                     break;
                 case R.id.img13:
+                    sonido.play(click,1,1,0,0,1);
                     imagen13.setImageResource(cartas[12]);
                     imagenes_seleccionadas[turno] = cartas[12];
                     cartas_seleccionadas[turno] = 12;
                     imagen13.setEnabled(false);
                     break;
                 case R.id.img14:
+                    sonido.play(click,1,1,0,0,1);
                     imagen14.setImageResource(cartas[13]);
                     imagenes_seleccionadas[turno] = cartas[13];
                     cartas_seleccionadas[turno] = 13;
                     imagen14.setEnabled(false);
                     break;
                 case R.id.img15:
+                    sonido.play(click,1,1,0,0,1);
                     imagen15.setImageResource(cartas[14]);
                     imagenes_seleccionadas[turno] = cartas[14];
                     cartas_seleccionadas[turno] = 14;
                     imagen15.setEnabled(false);
                     break;
                 case R.id.img16:
+                    sonido.play(click,1,1,0,0,1);
                     imagen16.setImageResource(cartas[15]);
                     imagenes_seleccionadas[turno] = cartas[15];
                     cartas_seleccionadas[turno] = 15;
