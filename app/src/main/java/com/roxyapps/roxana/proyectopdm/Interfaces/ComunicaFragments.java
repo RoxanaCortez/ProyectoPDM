@@ -6,5 +6,5 @@ public interface ComunicaFragments {
     public void InicioGames();
     public void InicioAbout();
     public void InicioHelp();
-
+    public void Salir();
 }

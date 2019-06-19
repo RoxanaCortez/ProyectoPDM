@@ -1,5 +1,7 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -54,4 +56,28 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         Intent intent_help = new Intent(this, ContenedorInstrucciones.class);
         startActivity(intent_help);
     }
+
+    @Override
+    public void Salir() {
+        mensaje().show();
+    }
+
+    public AlertDialog mensaje(){
+        AlertDialog.Builder mensaje = new AlertDialog.Builder(MainActivity.this);
+
+        mensaje.setMessage("Está seguro que desea salir")
+                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        return mensaje.create();
+    };
 }

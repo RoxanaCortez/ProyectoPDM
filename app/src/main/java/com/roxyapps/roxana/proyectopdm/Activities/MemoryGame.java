@@ -1,24 +1,33 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roxyapps.roxana.proyectopdm.Fragments.MemoryInstruccions;
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
-public class MemoryGame extends AppCompatActivity {
+public class MemoryGame extends AppCompatActivity implements ComunicaGames, MemoryInstruccions.OnFragmentInteractionListener {
 
-    ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
+    private ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
             imagen12, imagen13, imagen14, imagen15, imagen16;
 
     private TextView parejas, puntos;
 
     private Button terminar;
+    private ImageButton atras2;
 
     private int imagenes[] = {R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
             R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon};
@@ -31,6 +40,8 @@ public class MemoryGame extends AppCompatActivity {
     private int  numero = 0, numero2 = 0;
 
 
+    Fragment memoryInstructions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +50,7 @@ public class MemoryGame extends AppCompatActivity {
         parejas = findViewById(R.id.txt_numparejas);
         puntos = findViewById(R.id.txt_numpuntos);
         terminar = findViewById(R.id.btn_terminar);
+        atras2 = findViewById(R.id.btn_atras2);
 
         imagen1 = findViewById(R.id.img1);
         imagen2 = findViewById(R.id.img2);
@@ -75,6 +87,7 @@ public class MemoryGame extends AppCompatActivity {
         imagen16.setOnClickListener(clickListener);
 
         terminar.setOnClickListener(clickListener);
+        atras2.setOnClickListener(clickListener);
 
         if(savedInstanceState == null){
             colocarImagenes();
@@ -84,6 +97,26 @@ public class MemoryGame extends AppCompatActivity {
             cartas_seleccionadas[0]=16;
         }
     }
+
+    public AlertDialog mensaje(){
+        AlertDialog.Builder mensaje = new AlertDialog.Builder(MemoryGame.this);
+
+        mensaje.setMessage("Está seguro de salir del juego")
+                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onBackPressed();
+
+                    }
+                })
+                .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                }
+                });
+        return mensaje.create();
+    };
 
     private void colocarImagenes(){
         int posicion, contador = 0;
@@ -200,6 +233,9 @@ public class MemoryGame extends AppCompatActivity {
                     cartas_seleccionadas[turno] = 15;
                     imagen16.setEnabled(false);
                     break;
+                case R.id.btn_atras2:
+                    mensaje().show();
+                    break;
                 case R.id.btn_terminar:
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
                     break;
@@ -239,7 +275,7 @@ public class MemoryGame extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                Thread.sleep(250);
+                Thread.sleep(400);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -259,7 +295,7 @@ public class MemoryGame extends AppCompatActivity {
                 ganador++;
 
                 if (ganador == 8) {
-                    Toast.makeText(getApplicationContext(), "!Encontro las n parejas¡", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
                 }//Aqui se van a a cambiar los iconos
             }if (cartas_final[0] == 0) {
                 imagen1.setImageResource(R.drawable.carta_icon);
@@ -384,5 +420,30 @@ public class MemoryGame extends AppCompatActivity {
             imagen16.setImageResource(cartas[15]);
             imagen16.setEnabled(false);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void InicioMemory() {
+
+    }
+
+    @Override
+    public void InicioWords() {
+
+    }
+
+    @Override
+    public void InicioPlay() {
+
+    }
+
+    @Override
+    public void InicioPlayMemory() {
+
     }
 }

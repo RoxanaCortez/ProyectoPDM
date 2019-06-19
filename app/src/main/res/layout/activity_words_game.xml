@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.WordsGame"
+    android:id="@+id/words"
     android:background="@drawable/gradient_green">
 
     <ImageView
@@ -212,4 +213,14 @@
     android:background="@drawable/rounded_shape_red"/>
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_atras"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|bottom|center"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="@drawable/home2_icon"
+        android:tint="@color/darkgray"
+        android:textColor="#fff" />
 </FrameLayout>
