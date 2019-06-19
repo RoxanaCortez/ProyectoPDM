@@ -32,6 +32,12 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     private int imagenes[] = {R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
             R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon};
 
+    private  int imagenes2[] = {R.drawable.fish_icon, R.drawable.dog_icon, R.drawable.flamingo_icon, R.drawable.cat_icon,
+            R.drawable.gorilla_icon, R.drawable.snail_icon, R.drawable.snake_icon, R.drawable.guacamaya_icon};
+
+    private int x[][]=  {{R.drawable.fish_icon, R.drawable.dog_icon, R.drawable.flamingo_icon, R.drawable.cat_icon,
+            R.drawable.gorilla_icon, R.drawable.snail_icon, R.drawable.snake_icon, R.drawable.guacamaya_icon},{R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
+            R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon}};
     private int cartas [] = new int[16];
     private int cartas_seleccionadas [] = new int[2];
     private int  imagenes_seleccionadas [] = new int[2];
@@ -119,11 +125,13 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     };
 
     private void colocarImagenes(){
+        int coleccion=0 ;
+                coleccion= (int)(Math.random()*2);
         int posicion, contador = 0;
         for(int i=0;i<8;){
             posicion = (int)(Math.random()*16);
             if(cartas[posicion]==0) {
-                cartas[posicion] = imagenes[i];
+                cartas[posicion] = x[coleccion][i];
                 contador++;
                 if(contador == 2){
                     i++;

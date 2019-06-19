@@ -27,7 +27,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
     private Button opcion1, opcion2, opcion3, fin;
 
     private String selecciono, resultado ="";
-    private int pntObtenido = 0, numFruta = 0, total1=0, total2=0;
+    private int pntObtenido = 0, numFruta = 0, total1=0, total2=0, posicion = 0;
 
     Fragment wordsInstructions;
 
@@ -70,13 +70,14 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
         total2 = palabras.getLongitudFrutas();
 
         if(numFruta<total1 & numFruta<total2){
-            fruta.setImageResource(palabras.getFruver(numFruta));
-            frutatxt.setText(palabras.getFrutas(numFruta));
-            opcion1.setText(palabras.getOpc1(numFruta));
-            opcion2.setText(palabras.getOpc2(numFruta));
-            opcion3.setText(palabras.getOpc3(numFruta));
+            posicion = (int)(Math.random()*19);
+            fruta.setImageResource(palabras.getFruver(posicion));
+            frutatxt.setText(palabras.getFrutas(posicion));
+            opcion1.setText(palabras.getOpc1(posicion));
+            opcion2.setText(palabras.getOpc2(posicion));
+            opcion3.setText(palabras.getOpc3(posicion));
 
-            selecciono = palabras.getRespuesta(numFruta);
+            selecciono = palabras.getRespuesta(posicion);
 
             numerotxt.setText(++numFruta+"/19");
         }else{
