@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Activities.MemoryGame"
+    android:id="@+id/memory"
     android:background="@drawable/gradient_green">
 
 
@@ -415,7 +416,16 @@
 
     </LinearLayout>
 
-
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_atras2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|bottom|center"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="@drawable/home2_icon"
+        android:tint="@color/darkgray"
+        android:textColor="#fff" />
 
 </FrameLayout>

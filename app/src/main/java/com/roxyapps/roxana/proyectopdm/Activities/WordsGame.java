@@ -1,32 +1,42 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roxyapps.roxana.proyectopdm.Fragments.WordsInstructions;
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
-public class WordsGame extends AppCompatActivity {
+public class WordsGame extends AppCompatActivity implements ComunicaGames, WordsInstructions.OnFragmentInteractionListener {
 
     private Banco palabras = new Banco();
 
     private TextView puntostxt, numerotxt, frutatxt;
+    private ImageButton atras;
     private ImageView fruta;
     private Button opcion1, opcion2, opcion3, fin;
 
     private String selecciono, resultado ="";
     private int pntObtenido = 0, numFruta = 0, total1=0, total2=0;
 
+    Fragment wordsInstructions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words_game);
 
+        atras = findViewById(R.id.btn_atras);
         fin = findViewById(R.id.btn_finalizar);
         puntostxt = findViewById(R.id.txt_num);
         numerotxt = findViewById(R.id.txt_pag);
@@ -40,6 +50,9 @@ public class WordsGame extends AppCompatActivity {
         opcion2.setOnClickListener(clickListener);
         opcion3.setOnClickListener(clickListener);
         fin.setOnClickListener(clickListener);
+        atras.setOnClickListener(clickListener);
+
+        wordsInstructions = new WordsInstructions();
 
         actualizarFruta();
     }
@@ -70,6 +83,25 @@ public class WordsGame extends AppCompatActivity {
             finish();
         }
     }
+
+    public AlertDialog mensaje(){
+        AlertDialog.Builder mensaje = new AlertDialog.Builder(WordsGame.this);
+
+        mensaje.setMessage("Está seguro de salir del juego")
+                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onBackPressed();
+                    }
+                })
+                .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        return mensaje.create();
+    };
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
@@ -102,6 +134,9 @@ public class WordsGame extends AppCompatActivity {
                         actualizarFruta();
                     }
                     break;
+                case R.id.btn_atras:
+                    mensaje().show();
+                    break;
                 case R.id.btn_finalizar:
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
                     break;
@@ -109,6 +144,30 @@ public class WordsGame extends AppCompatActivity {
         }
     };
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void InicioMemory() {
+
+    }
+
+    @Override
+    public void InicioWords() {
+
+    }
+
+    @Override
+    public void InicioPlay() {
+
+    }
+
+    @Override
+    public void InicioPlayMemory() {
+
+    }
 }
 
 

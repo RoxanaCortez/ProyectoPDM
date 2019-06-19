@@ -1,14 +1,18 @@
 package com.roxyapps.roxana.proyectopdm.Fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
+import com.roxyapps.roxana.proyectopdm.Activities.MainActivity;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
 import com.roxyapps.roxana.proyectopdm.R;
 
@@ -38,6 +42,7 @@ public class Inicio extends Fragment {
     Activity actividad;
     CircleButton parents_btn, games_btn, about_btn, help_btn;
     ComunicaFragments interfaceComunicaFragments;
+    ImageButton salir;
 
     public Inicio() {
         // Required empty public constructor
@@ -80,11 +85,13 @@ public class Inicio extends Fragment {
         games_btn = vista.findViewById(R.id.btn_games);
         about_btn = vista.findViewById(R.id.btn_about);
         help_btn = vista.findViewById(R.id.btn_help);
+        salir = vista.findViewById(R.id.btn_salir);
 
         parents_btn.setOnClickListener(clickListener);
         games_btn.setOnClickListener(clickListener);
         about_btn.setOnClickListener(clickListener);
         help_btn.setOnClickListener(clickListener);
+        salir.setOnClickListener(clickListener);
 
         return vista;
     }
@@ -131,6 +138,7 @@ public class Inicio extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -146,6 +154,9 @@ public class Inicio extends Fragment {
                     break;
                 case R.id.btn_help:
                     interfaceComunicaFragments.InicioHelp();
+                    break;
+                case R.id.btn_salir:
+                    interfaceComunicaFragments.Salir();
                     break;
             }
         }
