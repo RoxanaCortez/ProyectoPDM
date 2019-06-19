@@ -120,7 +120,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
             for (int i=0;i<16;i++){
                 cartas_final[i]=0;
             }
-            cartas_seleccionadas[0]=16;
+            cartas_seleccionadas[0]=15;
         }
     }
 
