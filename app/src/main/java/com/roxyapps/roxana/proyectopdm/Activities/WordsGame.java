@@ -27,7 +27,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
     private Button opcion1, opcion2, opcion3, fin;
 
     private String selecciono, resultado ="";
-    private int pntObtenido = 0, numFruta = 0, total1=0, total2=0, posicion = 0;
+    private int pntObtenido = 0, numFruta = 0, total1=0, total2=0;
 
     Fragment wordsInstructions;
 
@@ -70,7 +70,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
         total2 = palabras.getLongitudFrutas();
 
         if(numFruta<total1 & numFruta<total2){
-            posicion = (int)(Math.random()*19);
+            int posicion = (int) (Math.random()*19);
             fruta.setImageResource(palabras.getFruver(posicion));
             frutatxt.setText(palabras.getFrutas(posicion));
             opcion1.setText(palabras.getOpc1(posicion));

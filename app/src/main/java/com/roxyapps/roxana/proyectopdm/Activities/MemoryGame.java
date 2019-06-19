@@ -1,32 +1,33 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roxyapps.roxana.proyectopdm.Fragments.MemoryInstruccions;
+import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
-public class MemoryGame extends AppCompatActivity {
+public class MemoryGame extends AppCompatActivity implements ComunicaGames, MemoryInstruccions.OnFragmentInteractionListener {
 
-    private SoundPool sonido;
-    private int click;
-
-    ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
+    private ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
             imagen12, imagen13, imagen14, imagen15, imagen16;
 
     private TextView parejas, puntos;
 
     private Button terminar;
+    private ImageButton atras2;
 
     private int imagenes[] = {R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
             R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon};
@@ -45,6 +46,8 @@ public class MemoryGame extends AppCompatActivity {
     private int  numero = 0, numero2 = 0;
 
 
+    Fragment memoryInstructions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,7 @@ public class MemoryGame extends AppCompatActivity {
         parejas = findViewById(R.id.txt_numparejas);
         puntos = findViewById(R.id.txt_numpuntos);
         terminar = findViewById(R.id.btn_terminar);
+        atras2 = findViewById(R.id.btn_atras2);
 
         imagen1 = findViewById(R.id.img1);
         imagen2 = findViewById(R.id.img2);
@@ -89,19 +93,7 @@ public class MemoryGame extends AppCompatActivity {
         imagen16.setOnClickListener(clickListener);
 
         terminar.setOnClickListener(clickListener);
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1){
-            AudioAttributes audio = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-            sonido = new SoundPool.Builder()
-                    .setMaxStreams(6)
-                    .setAudioAttributes(audio).build();
-        }else{
-            sonido = new SoundPool(6, AudioManager.STREAM_MUSIC,0);
-        }
-        click = sonido.load(this, R.raw.click18c,1);
+        atras2.setOnClickListener(clickListener);
 
         if(savedInstanceState == null){
             colocarImagenes();
@@ -111,6 +103,26 @@ public class MemoryGame extends AppCompatActivity {
             cartas_seleccionadas[0]=16;
         }
     }
+
+    public AlertDialog mensaje(){
+        AlertDialog.Builder mensaje = new AlertDialog.Builder(MemoryGame.this);
+
+        mensaje.setMessage("Está seguro de salir del juego")
+                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onBackPressed();
+
+                    }
+                })
+                .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+                });
+        return mensaje.create();
+    };
 
     private void colocarImagenes(){
         int coleccion=0 ;
@@ -134,116 +146,103 @@ public class MemoryGame extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.img1:
-                    sonido.play(click,1,1,0,0,1);
                     imagen1.setImageResource(cartas[0]);
                     imagenes_seleccionadas[turno] = cartas[0];
                     cartas_seleccionadas[turno] = 0;
                     imagen1.setEnabled(false);
                     break;
                 case R.id.img2:
-                    sonido.play(click,1,1,0,0,1);
                     imagen2.setImageResource(cartas[1]);
                     imagenes_seleccionadas[turno] = cartas[1];
                     cartas_seleccionadas[turno] = 1;
                     imagen2.setEnabled(false);
                     break;
                 case R.id.img3:
-                    sonido.play(click,1,1,0,0,1);
                     imagen3.setImageResource(cartas[2]);
                     imagenes_seleccionadas[turno] = cartas[2];
                     cartas_seleccionadas[turno] = 2;
                     imagen3.setEnabled(false);
                     break;
                 case R.id.img4:
-                    sonido.play(click,1,1,0,0,1);
                     imagen4.setImageResource(cartas[3]);
                     imagenes_seleccionadas[turno] = cartas[3];
                     cartas_seleccionadas[turno] = 3;
                     imagen4.setEnabled(false);
                     break;
                 case R.id.img5:
-                    sonido.play(click,1,1,0,0,1);
                     imagen5.setImageResource(cartas[4]);
                     imagenes_seleccionadas[turno] = cartas[4];
                     cartas_seleccionadas[turno] = 4;
                     imagen5.setEnabled(false);
                     break;
                 case R.id.img6:
-                    sonido.play(click,1,1,0,0,1);
                     imagen6.setImageResource(cartas[5]);
                     imagenes_seleccionadas[turno] = cartas[5];
                     cartas_seleccionadas[turno] = 5;
                     imagen6.setEnabled(false);
                     break;
                 case R.id.img7:
-                    sonido.play(click,1,1,0,0,1);
                     imagen7.setImageResource(cartas[6]);
                     imagenes_seleccionadas[turno] = cartas[6];
                     cartas_seleccionadas[turno] = 6;
                     imagen7.setEnabled(false);
                     break;
                 case R.id.img8:
-                    sonido.play(click,1,1,0,0,1);
                     imagen8.setImageResource(cartas[7]);
                     imagenes_seleccionadas[turno] = cartas[7];
                     cartas_seleccionadas[turno] = 7;
                     imagen8.setEnabled(false);
                     break;
                 case R.id.img9:
-                    sonido.play(click,1,1,0,0,1);
                     imagen9.setImageResource(cartas[8]);
                     imagenes_seleccionadas[turno] = cartas[8];
                     cartas_seleccionadas[turno] = 8;
                     imagen9.setEnabled(false);
                     break;
                 case R.id.img10:
-                    sonido.play(click,1,1,0,0,1);
                     imagen10.setImageResource(cartas[9]);
                     imagenes_seleccionadas[turno] = cartas[9];
                     cartas_seleccionadas[turno] = 9;
                     imagen10.setEnabled(false);
                     break;
                 case R.id.img11:
-                    sonido.play(click,1,1,0,0,1);
                     imagen11.setImageResource(cartas[10]);
                     imagenes_seleccionadas[turno] = cartas[10];
                     cartas_seleccionadas[turno] = 10;
                     imagen11.setEnabled(false);
                     break;
                 case R.id.img12:
-                    sonido.play(click,1,1,0,0,1);
                     imagen12.setImageResource(cartas[11]);
                     imagenes_seleccionadas[turno] = cartas[11];
                     cartas_seleccionadas[turno] = 11;
                     imagen12.setEnabled(false);
                     break;
                 case R.id.img13:
-                    sonido.play(click,1,1,0,0,1);
                     imagen13.setImageResource(cartas[12]);
                     imagenes_seleccionadas[turno] = cartas[12];
                     cartas_seleccionadas[turno] = 12;
                     imagen13.setEnabled(false);
                     break;
                 case R.id.img14:
-                    sonido.play(click,1,1,0,0,1);
                     imagen14.setImageResource(cartas[13]);
                     imagenes_seleccionadas[turno] = cartas[13];
                     cartas_seleccionadas[turno] = 13;
                     imagen14.setEnabled(false);
                     break;
                 case R.id.img15:
-                    sonido.play(click,1,1,0,0,1);
                     imagen15.setImageResource(cartas[14]);
                     imagenes_seleccionadas[turno] = cartas[14];
                     cartas_seleccionadas[turno] = 14;
                     imagen15.setEnabled(false);
                     break;
                 case R.id.img16:
-                    sonido.play(click,1,1,0,0,1);
                     imagen16.setImageResource(cartas[15]);
                     imagenes_seleccionadas[turno] = cartas[15];
                     cartas_seleccionadas[turno] = 15;
                     imagen16.setEnabled(false);
+                    break;
+                case R.id.btn_atras2:
+                    mensaje().show();
                     break;
                 case R.id.btn_terminar:
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
@@ -257,12 +256,6 @@ public class MemoryGame extends AppCompatActivity {
             }
         }
     };
-
-    protected void onDestroy(){
-        super.onDestroy();
-        sonido.release();
-        sonido = null;
-    }
 
     class Secuencia extends AsyncTask<Void,Integer,Void> {
 
@@ -290,7 +283,7 @@ public class MemoryGame extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                Thread.sleep(250);
+                Thread.sleep(400);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -310,7 +303,7 @@ public class MemoryGame extends AppCompatActivity {
                 ganador++;
 
                 if (ganador == 8) {
-                    Toast.makeText(getApplicationContext(), "!Encontro las n parejas¡", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
                 }//Aqui se van a a cambiar los iconos
             }if (cartas_final[0] == 0) {
                 imagen1.setImageResource(R.drawable.carta_icon);
@@ -361,7 +354,7 @@ public class MemoryGame extends AppCompatActivity {
                 imagen16.setImageResource(R.drawable.carta_icon);
                 imagen16.setEnabled(true);
             }
-            cartas_seleccionadas[0] = 16;
+            cartas_seleccionadas[0] = 15;
         }
     }
 
@@ -435,5 +428,30 @@ public class MemoryGame extends AppCompatActivity {
             imagen16.setImageResource(cartas[15]);
             imagen16.setEnabled(false);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void InicioMemory() {
+
+    }
+
+    @Override
+    public void InicioWords() {
+
+    }
+
+    @Override
+    public void InicioPlay() {
+
+    }
+
+    @Override
+    public void InicioPlayMemory() {
+
     }
 }
