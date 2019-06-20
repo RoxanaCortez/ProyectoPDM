@@ -1,8 +1,8 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.net.Uri;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.roxyapps.roxana.proyectopdm.Fragments.About;
