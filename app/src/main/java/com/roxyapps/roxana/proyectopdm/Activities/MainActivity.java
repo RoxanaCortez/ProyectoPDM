@@ -3,6 +3,7 @@ package com.roxyapps.roxana.proyectopdm.Activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import com.roxyapps.roxana.proyectopdm.R;
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
 
     Fragment fragmentInicio;
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,16 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         setContentView(R.layout.activity_main);
 
         fragmentInicio = new Inicio();
+        player = MediaPlayer.create(this, R.raw.fantasy);
+        player.start();
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
+    }
+
+    public void onPause(){
+        super.onPause();
+        player.release();
     }
 
     @Override
@@ -60,6 +70,16 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
     @Override
     public void Salir() {
         mensaje().show();
+    }
+
+    @Override
+    public void Play() {
+        if(player.isPlaying()==true){
+            player.pause();
+        }
+        else{
+            player.start();
+        }
     }
 
     public AlertDialog mensaje(){
