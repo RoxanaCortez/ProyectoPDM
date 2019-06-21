@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         player.start();
 
 
+
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
 

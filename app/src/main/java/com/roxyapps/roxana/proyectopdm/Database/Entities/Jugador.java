@@ -1,6 +1,6 @@
 package com.roxyapps.roxana.proyectopdm.Database.Entities;
 
-import androidx.room.Entity;
+//import androidx.room.Entity;
 
-@Entity(tableName = "Jugador")
+//@Entity(tableName = "Jugador")
 public class Jugador{}
