@@ -18,10 +18,12 @@ public class Memory {
 
 
     public int getId() {
+
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id)
+    {
         this.id = id;
     }
 
@@ -30,6 +32,7 @@ public class Memory {
     }
 
     public void setImagen(int imagen) {
+
         this.imagen = imagen;
     }
 
