@@ -8,17 +8,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".Activities.MemoryGame"></activity>
-        <activity android:name=".Activities.WordsGame" />
-        <activity android:name=".Activities.ContenedorGames" />
-        <activity android:name=".Activities.AboutContenedor" />
+        <activity android:name=".Activities.MemoryGame"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.WordsGame"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ContenedorGames"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.AboutContenedor"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.ContenedorInstrucciones"
             android:label="@string/title_activity_contenedor_instrucciones"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
