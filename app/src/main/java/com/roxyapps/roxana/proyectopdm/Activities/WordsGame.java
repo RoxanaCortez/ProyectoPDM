@@ -12,6 +12,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+/*
+import java.util.Date;
+import java.util.Calendar;
+IMPORTS PARA EL TIEMPO
+*/
+
 
 import com.roxyapps.roxana.proyectopdm.Fragments.WordsInstructions;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
@@ -140,6 +146,11 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
                     break;
                 case R.id.btn_finalizar:
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+
+                    /*
+                    Date currentTime = Calendar.getInstance().getTime();
+                    VARIABLE 'currentTime' QUE SERVIRA PARA GUARDAR EL TIEMPO ACTUAL
+                     */
                     break;
             }
         }
