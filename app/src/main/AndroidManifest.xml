@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".Activities.MemoryGame"></activity>
+        <activity android:name=".Activities.PlayerList"></activity>
+        <activity android:name=".Activities.MemoryGame" />
         <activity android:name=".Activities.WordsGame" />
         <activity android:name=".Activities.ContenedorGames" />
         <activity android:name=".Activities.AboutContenedor" />
@@ -17,7 +18,8 @@
             android:name=".Activities.ContenedorInstrucciones"
             android:label="@string/title_activity_contenedor_instrucciones"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activities.MainActivity"
+        <activity
+            android:name=".Activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

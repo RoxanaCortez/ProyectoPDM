@@ -61,6 +61,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+
         memory = ViewModelProviders.of(this).get(MemoryViewModel.class);
 
         /*memory = ViewModelProviders.of(this).get(MemoryViewModel.class);
@@ -163,9 +164,6 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                 imagenes[i] = pictures.get((int) ((Math.random() * pictures.size()))% (pictures.size()-1)).getImagen();
             }
 
-            //int coleccion = 0;
-            //coleccion = (int) (Math.random() * 2);
-            //x[coleccion][i]
             int posicion, contador = 0;
             for (int i = 0; i < 8; ) {
                 posicion = (int) (Math.random() * 16);
@@ -318,6 +316,9 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
             }
         }
     };
+    public void actualizarPuntos(int a){
+        puntos.setText(""+a);
+    }
 
     class Secuencia extends AsyncTask<Void, Integer, Void> {
 
@@ -361,7 +362,8 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                 cartas_final[cartas_seleccionadas[1]] = 1;
 
                 parejas.setText(++numero + "/8");
-                puntos.setText(++numero2 + "");
+                numero2 += 1;
+                actualizarPuntos(numero2);
                 ganador++;
 
                 if (ganador == 8) {

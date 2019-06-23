@@ -5,6 +5,8 @@ import android.net.Uri;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,21 +15,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roxyapps.roxana.proyectopdm.Database.Entities.Words;
+import com.roxyapps.roxana.proyectopdm.Database.ViewModel.WordsViewModel;
 import com.roxyapps.roxana.proyectopdm.Fragments.WordsInstructions;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class WordsGame extends AppCompatActivity implements ComunicaGames, WordsInstructions.OnFragmentInteractionListener {
 
-    private Banco palabras = new Banco();
+    private WordsViewModel words;
 
     private TextView puntostxt, numerotxt, frutatxt;
     private ImageButton atras;
     private ImageView fruta;
     private Button opcion1, opcion2, opcion3, fin;
 
-    private String selecciono, resultado ="";
-    private int pntObtenido = 0, numFruta = 0, total1=0, total2=0;
+    private String selecciono, resultado ="", opc1, opc2, opc3;
+    private int pntObtenido, numFruta, total1, posicion;
 
     Fragment wordsInstructions;
 
@@ -35,6 +39,8 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words_game);
+
+        words = ViewModelProviders.of(this).get(WordsViewModel.class);
 
         atras = findViewById(R.id.btn_atras);
         fin = findViewById(R.id.btn_finalizar);
@@ -66,23 +72,27 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
     }
 
     private void actualizarFruta(){
-        total1 = palabras.getLongitudOpciones();
-        total2 = palabras.getLongitudFrutas();
+        words.getAll().observe(this, word -> {
+            if (word == null || word.size() == 0) return;
+            posicion = (int) ((Math.random() * word.size())) % (word.size() - 1);
 
-        if(numFruta<total1 & numFruta<total2){
-            int posicion = (int) (Math.random()*19);
-            fruta.setImageResource(palabras.getFruver(posicion));
-            frutatxt.setText(palabras.getFrutas(posicion));
-            opcion1.setText(palabras.getOpc1(posicion));
-            opcion2.setText(palabras.getOpc2(posicion));
-            opcion3.setText(palabras.getOpc3(posicion));
+            total1 = word.size();
+            if(numFruta<total1){
+                fruta.setImageResource(word.get(posicion).getImagen());
+                frutatxt.setText(word.get(posicion).getPregunta());
+                opcion1.setText(word.get(posicion).getOpcion1());
+                opc1 = word.get(posicion).getOpcion1();
+                opcion2.setText(word.get(posicion).getOpcion2());
+                opc2 = word.get(posicion).getOpcion2();
+                opcion3.setText(word.get(posicion).getOpcion3());
+                opc3 = word.get(posicion).getOpcion3();
+                selecciono =word.get(posicion).getRespuesta();
 
-            selecciono = palabras.getRespuesta(posicion);
-
-            numerotxt.setText(++numFruta+"/19");
-        }else{
-            finish();
-        }
+                numerotxt.setText(++numFruta+"/19");
+            }else{
+                finish();
+            }
+        });
     }
 
     public AlertDialog mensaje(){
@@ -109,7 +119,8 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.btn_opc1:
-                    if(opcion1.getText() == selecciono){
+                    if(opc1.equals(selecciono)){
+                        Toast.makeText(getApplicationContext(), "si entra", Toast.LENGTH_SHORT).show();
                         pntObtenido += 1;
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
@@ -118,7 +129,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
                     }
                     break;
                 case R.id.btn_opc2:
-                    if(opcion2.getText() == selecciono){
+                    if(opc2.equals(selecciono)){
                         pntObtenido += 1;
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
@@ -127,7 +138,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
                     }
                     break;
                 case R.id.btn_opc3:
-                    if(opcion3.getText() == selecciono){
+                    if(opc3.equals(selecciono)){
                         pntObtenido += 1;
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
