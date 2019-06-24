@@ -157,9 +157,10 @@ public class Inicio extends Fragment {
                 case R.id.btn_salir:
                     interfaceComunicaFragments.Salir();
                     break;
-                /*case R.id.musica:
+                case R.id.musica:
+
                     interfaceComunicaFragments.Play();
-                    break;*/
+                    break;
             }
         }
     };

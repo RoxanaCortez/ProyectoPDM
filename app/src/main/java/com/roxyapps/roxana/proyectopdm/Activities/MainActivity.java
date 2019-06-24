@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     Fragment fragmentInicio;
 
-    //MediaPlayer player;
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +26,23 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         setContentView(R.layout.activity_main);
 
         fragmentInicio = new Inicio();
-       // player = MediaPlayer.create(this, R.raw.fantasy);
-       // player.start();
+        player = MediaPlayer.create(this, R.raw.music01);
+        player.start();
 
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
 
-   /* public void onPause(){
+    public void onPause(){
         super.onPause();
+        //player.release();
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
         player.release();
-    }*/
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         mensaje().show();
     }
 
-   /* @Override
+    @Override
     public void Play() {
         if(player.isPlaying()==true){
             player.pause();
@@ -80,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         else{
             player.start();
         }
-    }*/
+    }
 
     public AlertDialog mensaje(){
         AlertDialog.Builder mensaje = new AlertDialog.Builder(MainActivity.this);

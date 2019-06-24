@@ -7,5 +7,5 @@ public interface ComunicaFragments {
     public void InicioAbout();
     public void InicioHelp();
     public void Salir();
-    //public void Play();
+    public void Play();
 }
