@@ -123,7 +123,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         }
     }
 
-    public AlertDialog mensaje(){
+    /*public AlertDialog mensaje(){
         AlertDialog.Builder mensaje = new AlertDialog.Builder(MemoryGame.this);
 
         mensaje.setMessage("Está seguro de salir del juego")
@@ -141,7 +141,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                 }
                 });
         return mensaje.create();
-    };
+    };*/
 
     private void colocarImagenes(){
         int coleccion=0 ;
@@ -277,7 +277,8 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                     imagen16.setEnabled(false);
                     break;
                 case R.id.btn_atras2:
-                    mensaje().show();
+                    CustomDialog cdd=new CustomDialog(MemoryGame.this);
+                    cdd.show();
                     break;
                 case R.id.btn_terminar:
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
