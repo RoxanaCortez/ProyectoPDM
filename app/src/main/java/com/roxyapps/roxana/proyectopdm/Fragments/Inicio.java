@@ -42,7 +42,7 @@ public class Inicio extends Fragment {
     ImageButton salir, music;
 
     public Inicio() {
-        // Required empty public constructor
+        // Constructor del metodo Inicio
     }
 
     /**
@@ -55,6 +55,7 @@ public class Inicio extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static Inicio newInstance(String param1, String param2) {
+        //Preparar las variables necesarias para crear la activity
         Inicio fragment = new Inicio();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -78,6 +79,7 @@ public class Inicio extends Fragment {
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_inicio, container, false);
 
+        //Creando las referencias de los botones con los id
         parents_btn = vista.findViewById(R.id.btn_parents);
         games_btn = vista.findViewById(R.id.btn_games);
         about_btn = vista.findViewById(R.id.btn_about);
@@ -85,6 +87,7 @@ public class Inicio extends Fragment {
         salir = vista.findViewById(R.id.btn_salir);
         music = vista.findViewById(R.id.musica);
 
+        //Creando Listeners para los botones
         parents_btn.setOnClickListener(clickListener);
         games_btn.setOnClickListener(clickListener);
         about_btn.setOnClickListener(clickListener);
@@ -137,10 +140,11 @@ public class Inicio extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-
+    //Creando el metodo de que hacer para cuando se haga click en botones
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //Creando los casos de Click en cada uno de los botones
             switch (v.getId()){
                 case R.id.btn_parents:
                     interfaceComunicaFragments.InicioParents();
@@ -158,7 +162,6 @@ public class Inicio extends Fragment {
                     interfaceComunicaFragments.Salir();
                     break;
                 case R.id.musica:
-
                     interfaceComunicaFragments.Play();
                     break;
             }

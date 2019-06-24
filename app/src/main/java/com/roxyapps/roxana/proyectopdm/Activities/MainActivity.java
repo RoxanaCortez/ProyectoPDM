@@ -15,9 +15,8 @@ import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
-
+    //inicializando variables para fragmento y musica
     Fragment fragmentInicio;
-
     MediaPlayer player;
 
     @Override
@@ -26,10 +25,8 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         setContentView(R.layout.activity_main);
 
         fragmentInicio = new Inicio();
-        player = MediaPlayer.create(this, R.raw.music01);
-        player.start();
-
-
+        player = MediaPlayer.create(this, R.raw.music01); //Archivo por Bensound.com
+        //player.start();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
