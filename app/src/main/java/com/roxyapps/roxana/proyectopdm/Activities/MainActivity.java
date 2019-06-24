@@ -33,7 +33,12 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     public void onPause(){
         super.onPause();
-        //player.release();
+        player.pause();
+    }
+
+    public void onResume(){
+        super.onResume();
+        player.start();
     }
 
     public void onDestroy(){
