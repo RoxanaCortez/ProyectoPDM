@@ -2,19 +2,19 @@ package com.roxyapps.roxana.proyectopdm.Database.Dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.roxyapps.roxana.proyectopdm.Database.Entities.Memory;
+import com.roxyapps.roxana.proyectopdm.Database.Entities.Words;
+
 import java.util.List;
 
 @Dao
-public interface MemoryDao {
+public interface WordsDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Memory memory);
+    void insert(Words words);
 
-    @Query("select * from Memory")
-    LiveData<List<Memory>> getAll();
+    @Query("select * from Words")
+    LiveData<List<Words>> getAll();
 }

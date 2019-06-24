@@ -7,9 +7,13 @@ import android.media.SoundPool;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +22,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roxyapps.roxana.proyectopdm.Database.Dao.MemoryDao;
+import com.roxyapps.roxana.proyectopdm.Database.Entities.Memory;
+import com.roxyapps.roxana.proyectopdm.Database.RoomDb;
+import com.roxyapps.roxana.proyectopdm.Database.RoomDb_Impl;
+import com.roxyapps.roxana.proyectopdm.Database.ViewModel.MemoryViewModel;
 import com.roxyapps.roxana.proyectopdm.Fragments.MemoryInstruccions;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
+import java.util.List;
+
 public class MemoryGame extends AppCompatActivity implements ComunicaGames, MemoryInstruccions.OnFragmentInteractionListener {
+
+    private MemoryViewModel memory;
 
     private SoundPool sonido;
     private int click;
@@ -35,29 +48,31 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     private Button terminar;
     private ImageButton atras2;
 
-    private int imagenes[] = {R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
-            R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon};
+    private int cartas[] = new int[16];
+    private int cartas_seleccionadas[] = new int[2];
+    private int imagenes_seleccionadas[] = new int[2];
+    private int cartas_final[] = new int[16];
+    int turno = 0, ganador = 0;
+    private int numero = 0, numero2 = 0;
 
-    private  int imagenes2[] = {R.drawable.fish_icon, R.drawable.dog_icon, R.drawable.flamingo_icon, R.drawable.cat_icon,
-            R.drawable.gorilla_icon, R.drawable.snail_icon, R.drawable.snake_icon, R.drawable.guacamaya_icon};
-
-    private int x[][]=  {{R.drawable.fish_icon, R.drawable.dog_icon, R.drawable.flamingo_icon, R.drawable.cat_icon,
-            R.drawable.gorilla_icon, R.drawable.snail_icon, R.drawable.snake_icon, R.drawable.guacamaya_icon},{R.drawable.elephant_icon, R.drawable.panda_icon, R.drawable.jaguar_icon,
-            R.drawable.pig_icon, R.drawable.hippo_icon, R.drawable.monkey_icon, R.drawable.lion_icon, R.drawable.frog_icon}};
-    private int cartas [] = new int[16];
-    private int cartas_seleccionadas [] = new int[2];
-    private int  imagenes_seleccionadas [] = new int[2];
-    private int cartas_final []= new int[16];
-    int turno = 0, ganador=0;
-    private int  numero = 0, numero2 = 0;
-
-
-    Fragment memoryInstructions;
+    int imagenes[] = new int[8];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_game);
+
+        memory = ViewModelProviders.of(this).get(MemoryViewModel.class);
+
+        /*memory = ViewModelProviders.of(this).get(MemoryViewModel.class);
+
+        pictures = memory.getAll();
+
+
+        for (int i=0; i< 8; i++){
+            imagenes[i] = pictures.get((int) (Math.random()% pictures.size())).getImagen();
+        }*/
+
 
         parejas = findViewById(R.id.txt_numparejas);
         puntos = findViewById(R.id.txt_numpuntos);
@@ -101,7 +116,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         terminar.setOnClickListener(clickListener);
         atras2.setOnClickListener(clickListener);
 
-        /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             AudioAttributes audio = new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -109,21 +124,18 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
             sonido = new SoundPool.Builder()
                     .setMaxStreams(6)
                     .setAudioAttributes(audio).build();
-        }else{
-            sonido = new SoundPool(6, AudioManager.STREAM_MUSIC,0);
+        } else {
+            sonido = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
         }
-        click = sonido.load(this, R.raw.click18c,1);*/
+        click = sonido.load(this, R.raw.click18c, 1);
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             colocarImagenes();
-            for (int i=0;i<16;i++){
-                cartas_final[i]=0;
-            }
-            cartas_seleccionadas[0]=15;
+
         }
     }
 
-    /*public AlertDialog mensaje(){
+    public AlertDialog mensaje() {
         AlertDialog.Builder mensaje = new AlertDialog.Builder(MemoryGame.this);
 
         mensaje.setMessage("Está seguro de salir del juego")
@@ -135,29 +147,42 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                     }
                 })
                 .setPositiveButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                }
+                    }
                 });
         return mensaje.create();
-    };*/
+    }
 
-    private void colocarImagenes(){
-        int coleccion=0 ;
-                coleccion= (int)(Math.random()*2);
-        int posicion, contador = 0;
-        for(int i=0;i<8;){
-            posicion = (int)(Math.random()*16);
-            if(cartas[posicion]==0) {
-                cartas[posicion] = x[coleccion][i];
-                contador++;
-                if(contador == 2){
-                    i++;
-                    contador=0;
+    ;
+
+    private void colocarImagenes() {
+        memory.getAll().observe(this, pictures -> {
+            if (pictures == null || pictures.size() == 0) return;
+            for (int i = 0; i < 8; i++) {
+                imagenes[i] = pictures.get((int) ((Math.random() * pictures.size()))% (pictures.size()-1)).getImagen();
+            }
+
+            int posicion, contador = 0;
+            for (int i = 0; i < 8; ) {
+                posicion = (int) (Math.random() * 16);
+                if (cartas[posicion] == 0) {
+                    cartas[posicion] = imagenes[i];
+                    contador++;
+                    if (contador == 2) {
+                        i++;
+                        contador = 0;
+                    }
                 }
             }
-        }
+            for (int i = 0; i < 16; i++) {
+                cartas_final[i] = 0;
+            }
+            cartas_seleccionadas[0] = 15;
+        });
+
+
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -165,135 +190,137 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.img1:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen1.setImageResource(cartas[0]);
                     imagenes_seleccionadas[turno] = cartas[0];
                     cartas_seleccionadas[turno] = 0;
                     imagen1.setEnabled(false);
                     break;
                 case R.id.img2:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen2.setImageResource(cartas[1]);
                     imagenes_seleccionadas[turno] = cartas[1];
                     cartas_seleccionadas[turno] = 1;
                     imagen2.setEnabled(false);
                     break;
                 case R.id.img3:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen3.setImageResource(cartas[2]);
                     imagenes_seleccionadas[turno] = cartas[2];
                     cartas_seleccionadas[turno] = 2;
                     imagen3.setEnabled(false);
                     break;
                 case R.id.img4:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen4.setImageResource(cartas[3]);
                     imagenes_seleccionadas[turno] = cartas[3];
                     cartas_seleccionadas[turno] = 3;
                     imagen4.setEnabled(false);
                     break;
                 case R.id.img5:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen5.setImageResource(cartas[4]);
                     imagenes_seleccionadas[turno] = cartas[4];
                     cartas_seleccionadas[turno] = 4;
                     imagen5.setEnabled(false);
                     break;
                 case R.id.img6:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen6.setImageResource(cartas[5]);
                     imagenes_seleccionadas[turno] = cartas[5];
                     cartas_seleccionadas[turno] = 5;
                     imagen6.setEnabled(false);
                     break;
                 case R.id.img7:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen7.setImageResource(cartas[6]);
                     imagenes_seleccionadas[turno] = cartas[6];
                     cartas_seleccionadas[turno] = 6;
                     imagen7.setEnabled(false);
                     break;
                 case R.id.img8:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen8.setImageResource(cartas[7]);
                     imagenes_seleccionadas[turno] = cartas[7];
                     cartas_seleccionadas[turno] = 7;
                     imagen8.setEnabled(false);
                     break;
                 case R.id.img9:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen9.setImageResource(cartas[8]);
                     imagenes_seleccionadas[turno] = cartas[8];
                     cartas_seleccionadas[turno] = 8;
                     imagen9.setEnabled(false);
                     break;
                 case R.id.img10:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen10.setImageResource(cartas[9]);
                     imagenes_seleccionadas[turno] = cartas[9];
                     cartas_seleccionadas[turno] = 9;
                     imagen10.setEnabled(false);
                     break;
                 case R.id.img11:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen11.setImageResource(cartas[10]);
                     imagenes_seleccionadas[turno] = cartas[10];
                     cartas_seleccionadas[turno] = 10;
                     imagen11.setEnabled(false);
                     break;
                 case R.id.img12:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen12.setImageResource(cartas[11]);
                     imagenes_seleccionadas[turno] = cartas[11];
                     cartas_seleccionadas[turno] = 11;
                     imagen12.setEnabled(false);
                     break;
                 case R.id.img13:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen13.setImageResource(cartas[12]);
                     imagenes_seleccionadas[turno] = cartas[12];
                     cartas_seleccionadas[turno] = 12;
                     imagen13.setEnabled(false);
                     break;
                 case R.id.img14:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen14.setImageResource(cartas[13]);
                     imagenes_seleccionadas[turno] = cartas[13];
                     cartas_seleccionadas[turno] = 13;
                     imagen14.setEnabled(false);
                     break;
                 case R.id.img15:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen15.setImageResource(cartas[14]);
                     imagenes_seleccionadas[turno] = cartas[14];
                     cartas_seleccionadas[turno] = 14;
                     imagen15.setEnabled(false);
                     break;
                 case R.id.img16:
-                    //sonido.play(click,1,1,0,0,1);
+                    sonido.play(click, 1, 1, 0, 0, 1);
                     imagen16.setImageResource(cartas[15]);
                     imagenes_seleccionadas[turno] = cartas[15];
                     cartas_seleccionadas[turno] = 15;
                     imagen16.setEnabled(false);
                     break;
                 case R.id.btn_atras2:
-                    CustomDialog cdd=new CustomDialog(MemoryGame.this);
-                    cdd.show();
+                    mensaje().show();
                     break;
                 case R.id.btn_terminar:
                     Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
                     break;
             }
-            if(turno == 0){
+            if (turno == 0) {
                 turno = 1;
-            }else {
+            } else {
                 new Secuencia().execute();
                 turno = 0;
             }
         }
     };
+    public void actualizarPuntos(int a){
+        puntos.setText(""+a);
+    }
 
-    class Secuencia extends AsyncTask<Void,Integer,Void> {
+    class Secuencia extends AsyncTask<Void, Integer, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -330,63 +357,80 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            if(imagenes_seleccionadas[0] == imagenes_seleccionadas[1]){
+            if (imagenes_seleccionadas[0] == imagenes_seleccionadas[1]) {
                 cartas_final[cartas_seleccionadas[0]] = 1;
                 cartas_final[cartas_seleccionadas[1]] = 1;
 
-                parejas.setText(++numero+"/8");
-                puntos.setText(++numero2+"");
+                parejas.setText(++numero + "/8");
+                numero2 += 1;
+                actualizarPuntos(numero2);
                 ganador++;
 
                 if (ganador == 8) {
                     Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
                 }//Aqui se van a a cambiar los iconos
-            }if (cartas_final[0] == 0) {
+            }
+            if (cartas_final[0] == 0) {
                 imagen1.setImageResource(R.drawable.carta_icon);
                 imagen1.setEnabled(true);
-            }if (cartas_final[1] == 0) {
+            }
+            if (cartas_final[1] == 0) {
                 imagen2.setImageResource(R.drawable.carta_icon);
                 imagen2.setEnabled(true);
-            }if (cartas_final[2] == 0) {
+            }
+            if (cartas_final[2] == 0) {
                 imagen3.setImageResource(R.drawable.carta_icon);
                 imagen3.setEnabled(true);
-            }if (cartas_final[3] == 0) {
+            }
+            if (cartas_final[3] == 0) {
                 imagen4.setImageResource(R.drawable.carta_icon);
                 imagen4.setEnabled(true);
-            }if (cartas_final[4] == 0) {
+            }
+            if (cartas_final[4] == 0) {
                 imagen5.setImageResource(R.drawable.carta_icon);
                 imagen5.setEnabled(true);
-            }if (cartas_final[5] == 0) {
+            }
+            if (cartas_final[5] == 0) {
                 imagen6.setImageResource(R.drawable.carta_icon);
                 imagen6.setEnabled(true);
-            }if (cartas_final[6] == 0) {
+            }
+            if (cartas_final[6] == 0) {
                 imagen7.setImageResource(R.drawable.carta_icon);
                 imagen7.setEnabled(true);
-            }if (cartas_final[7] == 0) {
+            }
+            if (cartas_final[7] == 0) {
                 imagen8.setImageResource(R.drawable.carta_icon);
                 imagen8.setEnabled(true);
-            }if (cartas_final[8] == 0) {
+            }
+            if (cartas_final[8] == 0) {
                 imagen9.setImageResource(R.drawable.carta_icon);
                 imagen9.setEnabled(true);
-            }if (cartas_final[9] == 0) {
+            }
+            if (cartas_final[9] == 0) {
                 imagen10.setImageResource(R.drawable.carta_icon);
                 imagen10.setEnabled(true);
-            }if (cartas_final[10] == 0) {
+            }
+            if (cartas_final[10] == 0) {
                 imagen11.setImageResource(R.drawable.carta_icon);
                 imagen11.setEnabled(true);
-            }if (cartas_final[11] == 0) {
+            }
+            if (cartas_final[11] == 0) {
                 imagen12.setImageResource(R.drawable.carta_icon);
                 imagen12.setEnabled(true);
-            }if (cartas_final[12] == 0) {
+            }
+            if (cartas_final[12] == 0) {
                 imagen13.setImageResource(R.drawable.carta_icon);
                 imagen13.setEnabled(true);
-            }if (cartas_final[13] == 0) {
+            }
+            if (cartas_final[13] == 0) {
                 imagen14.setImageResource(R.drawable.carta_icon);
                 imagen14.setEnabled(true);
-            }if (cartas_final[14] == 0) {
+            }
+            if (cartas_final[14] == 0) {
                 imagen15.setImageResource(R.drawable.carta_icon);
                 imagen15.setEnabled(true);
-            }if (cartas_final[15] == 0) {
+            }
+            if (cartas_final[15] == 0) {
                 imagen16.setImageResource(R.drawable.carta_icon);
                 imagen16.setEnabled(true);
             }
@@ -415,52 +459,67 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         turno = savedInstanceState.getInt("Turno");
         ganador = savedInstanceState.getInt("Ganador");
 
-        if(cartas_final[0] == 1 || cartas_seleccionadas[0]==0){
+        if (cartas_final[0] == 1 || cartas_seleccionadas[0] == 0) {
             imagen1.setImageResource(cartas[0]);
             imagen1.setEnabled(false);
-        }if(cartas_final[1] == 1 || cartas_seleccionadas[0]==1){
+        }
+        if (cartas_final[1] == 1 || cartas_seleccionadas[0] == 1) {
             imagen2.setImageResource(cartas[1]);
             imagen2.setEnabled(false);
-        }if(cartas_final[2] == 1 || cartas_seleccionadas[0]==2){
+        }
+        if (cartas_final[2] == 1 || cartas_seleccionadas[0] == 2) {
             imagen3.setImageResource(cartas[2]);
             imagen3.setEnabled(false);
-        }if(cartas_final[3] == 1 || cartas_seleccionadas[0]==3){
+        }
+        if (cartas_final[3] == 1 || cartas_seleccionadas[0] == 3) {
             imagen4.setImageResource(cartas[3]);
             imagen4.setEnabled(false);
-        }if(cartas_final[4] == 1 || cartas_seleccionadas[0]==4){
+        }
+        if (cartas_final[4] == 1 || cartas_seleccionadas[0] == 4) {
             imagen5.setImageResource(cartas[4]);
             imagen5.setEnabled(false);
-        }if(cartas_final[5] == 1 || cartas_seleccionadas[0]==5){
+        }
+        if (cartas_final[5] == 1 || cartas_seleccionadas[0] == 5) {
             imagen6.setImageResource(cartas[5]);
             imagen6.setEnabled(false);
-        }if(cartas_final[6] == 1 || cartas_seleccionadas[0]==6){
+        }
+        if (cartas_final[6] == 1 || cartas_seleccionadas[0] == 6) {
             imagen7.setImageResource(cartas[6]);
             imagen7.setEnabled(false);
-        }if(cartas_final[7] == 1 || cartas_seleccionadas[0]==7){
+        }
+        if (cartas_final[7] == 1 || cartas_seleccionadas[0] == 7) {
             imagen8.setImageResource(cartas[7]);
             imagen8.setEnabled(false);
-        }if(cartas_final[8] == 1 || cartas_seleccionadas[0]==8){
+        }
+        if (cartas_final[8] == 1 || cartas_seleccionadas[0] == 8) {
             imagen9.setImageResource(cartas[8]);
             imagen9.setEnabled(false);
-        }if(cartas_final[9] == 1 || cartas_seleccionadas[0]==9) {
+        }
+        if (cartas_final[9] == 1 || cartas_seleccionadas[0] == 9) {
             imagen10.setImageResource(cartas[9]);
             imagen10.setEnabled(false);
-        }if(cartas_final[10] == 1 || cartas_seleccionadas[0]==10){
+        }
+        if (cartas_final[10] == 1 || cartas_seleccionadas[0] == 10) {
             imagen11.setImageResource(cartas[10]);
             imagen11.setEnabled(false);
-        }if(cartas_final[11] == 1 || cartas_seleccionadas[0]==11){
+        }
+        if (cartas_final[11] == 1 || cartas_seleccionadas[0] == 11) {
             imagen12.setImageResource(cartas[11]);
             imagen12.setEnabled(false);
-        }if(cartas_final[12] == 1 || cartas_seleccionadas[0]==12){
+        }
+        if (cartas_final[12] == 1 || cartas_seleccionadas[0] == 12) {
             imagen13.setImageResource(cartas[12]);
             imagen13.setEnabled(false);
-        }if(cartas_final[13] == 1 || cartas_seleccionadas[0]==13){
+        }
+        if (cartas_final[13] == 1 || cartas_seleccionadas[0] == 13) {
             imagen14.setImageResource(cartas[13]);
             imagen14.setEnabled(false);
-        }if(cartas_final[14] == 1 || cartas_seleccionadas[0]==14){
+        }
+        if (cartas_final[14] == 1 || cartas_seleccionadas[0] == 14) {
             imagen15.setImageResource(cartas[14]);
             imagen15.setEnabled(false);
-        }if(cartas_final[15] == 1 || cartas_seleccionadas[0]==15){
+        }
+        if (cartas_final[15] == 1 || cartas_seleccionadas[0] == 15) {
             imagen16.setImageResource(cartas[15]);
             imagen16.setEnabled(false);
         }

@@ -9,9 +9,7 @@ import java.sql.Time;
 
 @Entity(tableName = "Player")
 public class Player {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-
+    @PrimaryKey(autoGenerate = true) private int id;
     @ColumnInfo(name = "nombre") private String nombre;
     @ColumnInfo(name = "juego") private String juego;
     @ColumnInfo(name = "nivel") private String nivel;

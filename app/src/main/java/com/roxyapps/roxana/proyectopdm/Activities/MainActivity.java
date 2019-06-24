@@ -1,6 +1,7 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -14,11 +15,18 @@ import com.roxyapps.roxana.proyectopdm.Fragments.Inicio;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaFragments;
 import com.roxyapps.roxana.proyectopdm.R;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+
+import java.io.IOException;
+
+
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
-
+    //inicializando variables para fragmento y musica
     Fragment fragmentInicio;
+    MediaPlayer player;
 
-    //MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +34,26 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         setContentView(R.layout.activity_main);
 
         fragmentInicio = new Inicio();
-       // player = MediaPlayer.create(this, R.raw.fantasy);
-       // player.start();
-
-
+        player = MediaPlayer.create(this, R.raw.music01); //Archivo por Bensound.com
+        player.start();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
 
-   /* public void onPause(){
+    public void onPause(){
         super.onPause();
+        //player.pause();
+    }
+
+    public void onResume(){
+        super.onResume();
+        player.start();
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
         player.release();
-    }*/
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -72,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         mensaje().show();
     }
 
-   /* @Override
+    @Override
     public void Play() {
         if(player.isPlaying()==true){
             player.pause();
@@ -80,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         else{
             player.start();
         }
-    }*/
+    }
 
     public AlertDialog mensaje(){
         AlertDialog.Builder mensaje = new AlertDialog.Builder(MainActivity.this);
