@@ -239,9 +239,7 @@
                 android:layout_marginLeft="@dimen/medium_margin"
                 android:layout_marginRight="@dimen/medium_margin"
                 android:fontFamily="@font/advent_pro"
-                android:text="La motivación de esta app fue por realizar un proyecto de la materia 'Programación de dispositivos móviles' impartida en la Universidad Centroamericana 'José Simeón Cañas' UCA. \n\nCreditos extra:\nmarkushi/android-circlebutton is licensed under the
-
-Apache License 2.0\nhttp://www.apache.org/licenses/LICENSE-2.0\nMusic 'buddy' from Bensound.com"
+                android:text="La motivación de esta app fue por realizar un proyecto de la materia 'Programación de dispositivos móviles' impartida en la Universidad Centroamericana 'José Simeón Cañas' UCA. "
                 android:textColor="#000"
                 android:textSize="16sp"
                 android:textStyle="italic" />
