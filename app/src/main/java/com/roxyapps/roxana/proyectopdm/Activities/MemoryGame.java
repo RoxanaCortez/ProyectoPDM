@@ -1,6 +1,7 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -305,7 +306,9 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                     mensaje().show();
                     break;
                 case R.id.btn_terminar:
-                    Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    Intent intent_score = new Intent(getApplicationContext(), MemoryScore.class);
+                    startActivity(intent_score);
                     break;
             }
             if (turno == 0) {

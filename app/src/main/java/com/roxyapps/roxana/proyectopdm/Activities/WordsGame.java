@@ -1,6 +1,7 @@
 package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
@@ -15,13 +16,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.roxyapps.roxana.proyectopdm.Database.Entities.Words;
 import com.roxyapps.roxana.proyectopdm.Database.ViewModel.WordsViewModel;
+import com.roxyapps.roxana.proyectopdm.Fragments.Games;
 import com.roxyapps.roxana.proyectopdm.Fragments.WordsInstructions;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
-public class WordsGame extends AppCompatActivity implements ComunicaGames, WordsInstructions.OnFragmentInteractionListener {
+public class WordsGame extends AppCompatActivity implements ComunicaGames, WordsInstructions.OnFragmentInteractionListener{
 
     private WordsViewModel words;
 
@@ -34,6 +35,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
     private int pntObtenido, numFruta, total1, posicion;
 
     Fragment wordsInstructions;
+    ComunicaGames interfaceComunicaGames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +152,9 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
                     mensaje().show();
                     break;
                 case R.id.btn_finalizar:
-                    Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
+                    Intent intent_score = new Intent(getApplicationContext(), WordScore.class);
+                    startActivity(intent_score);
                     break;
             }
         }

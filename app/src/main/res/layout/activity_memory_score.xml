@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.WordScore">
+
+    <TextView
+        android:id="@+id/name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/parejas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parejas encontradas" />
+
+    <TextView
+        android:id="@+id/nparejas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/faltantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parejas faltantes" />
+
+    <TextView
+        android:id="@+id/nfaltantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/puntaje2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntos obtenidos" />
+
+    <TextView
+        android:id="@+id/npuntaje2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <ImageButton
+        android:id="@+id/btn_nueva2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|bottom|center"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="@drawable/home2_icon"
+        android:tint="@color/darkgray"
+        android:textColor="#fff" />
+
+    <ImageButton
+        android:id="@+id/btn_home3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|bottom|center"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="@drawable/home2_icon"
+        android:tint="@color/darkgray"
+        android:textColor="#fff" />
+</LinearLayout>

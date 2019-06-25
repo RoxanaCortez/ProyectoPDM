@@ -57,4 +57,6 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
         startActivity(intent_playMemory);
     }
 
+
+
 }
