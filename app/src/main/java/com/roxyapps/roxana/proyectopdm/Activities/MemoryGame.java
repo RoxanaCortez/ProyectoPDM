@@ -67,16 +67,6 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
 
         memory = ViewModelProviders.of(this).get(MemoryViewModel.class);
 
-        /*memory = ViewModelProviders.of(this).get(MemoryViewModel.class);
-
-        pictures = memory.getAll();
-
-
-        for (int i=0; i< 8; i++){
-            imagenes[i] = pictures.get((int) (Math.random()% pictures.size())).getImagen();
-        }*/
-
-
         parejas = findViewById(R.id.txt_numparejas);
         puntos = findViewById(R.id.txt_numpuntos);
         terminar = findViewById(R.id.btn_terminar);
