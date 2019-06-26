@@ -2,6 +2,8 @@ package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -136,27 +138,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         }
     }
 
-    public AlertDialog mensaje() {
-        AlertDialog.Builder mensaje = new AlertDialog.Builder(MemoryGame.this);
 
-        mensaje.setMessage("Está seguro de salir del juego")
-                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        onBackPressed();
-
-                    }
-                })
-                .setPositiveButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-        return mensaje.create();
-    }
-
-    ;
 
     private void colocarImagenes() {
         memory.getAll().observe(this, pictures -> {
@@ -303,7 +285,9 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                     imagen16.setEnabled(false);
                     break;
                 case R.id.btn_atras2:
-                    mensaje().show();
+                    CustomDialog customD=new CustomDialog(MemoryGame.this);
+                    customD.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    customD.show();
                     break;
                 case R.id.btn_terminar:
                     //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
