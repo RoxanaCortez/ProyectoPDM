@@ -20,7 +20,6 @@ public class CustomDialog extends Dialog implements
         // TODO Auto-generated constructor stub
         this.clase = activity;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
