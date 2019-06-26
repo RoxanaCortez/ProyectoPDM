@@ -34,7 +34,7 @@ public class WordsInstructions extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    ImageButton homeWordI_btn;
+    ImageButton homeWordI_btn, exit;
     Button play_btn;
     View vista;
     Activity actividad;
@@ -79,9 +79,11 @@ public class WordsInstructions extends Fragment {
 
         homeWordI_btn = vista.findViewById(R.id.btn_homeWordI);
         play_btn = vista.findViewById(R.id.btn_play);
+        exit = vista.findViewById(R.id.salir3);
 
         homeWordI_btn.setOnClickListener(clickListener);
         play_btn.setOnClickListener(clickListener);
+        exit.setOnClickListener(clickListener);
 
         return vista;
     }
@@ -137,6 +139,9 @@ public class WordsInstructions extends Fragment {
                     break;
                 case R.id.btn_play:
                     comunica.InicioPlay();
+                    break;
+                case R.id.salir3:
+                    comunica.Exit2();
                     break;
             }
         }

@@ -6,4 +6,7 @@ public interface ComunicaGames {
     public void InicioWords();
     public void InicioPlay();
     public void InicioPlayMemory();
+    public void Salir();
+    public void Exit();
+    public void Exit2();
 }

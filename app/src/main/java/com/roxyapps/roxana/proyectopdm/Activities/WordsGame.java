@@ -92,7 +92,8 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
 
                 numerotxt.setText(++numFruta+"/19");
             }else{
-                finish();
+                Intent intent_score = new Intent(getApplicationContext(), WordScore.class);
+                startActivity(intent_score);
             }
         });
     }
@@ -182,6 +183,21 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
 
     @Override
     public void InicioPlayMemory() {
+
+    }
+
+    @Override
+    public void Salir() {
+
+    }
+
+    @Override
+    public void Exit() {
+
+    }
+
+    @Override
+    public void Exit2() {
 
     }
 }

@@ -34,7 +34,7 @@ public class MemoryInstruccions extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    ImageButton homeMemoryI_btn;
+    ImageButton homeMemoryI_btn, exit;
     Button playMemory_btn;
     View vista;
     Activity actividad;
@@ -79,9 +79,11 @@ public class MemoryInstruccions extends Fragment {
 
         homeMemoryI_btn = vista.findViewById(R.id.btn_homeMemoryI);
         playMemory_btn = vista.findViewById(R.id.btn_playMemory);
+        exit = vista.findViewById(R.id.salir2);
 
         homeMemoryI_btn.setOnClickListener(clickListener);
         playMemory_btn.setOnClickListener(clickListener);
+        exit.setOnClickListener(clickListener);
 
         return vista;
     }
@@ -137,6 +139,9 @@ public class MemoryInstruccions extends Fragment {
                     break;
                 case R.id.btn_playMemory:
                     comunica.InicioPlayMemory();
+                    break;
+                case R.id.salir2:
+                    comunica.Exit();
                     break;
             }
         }

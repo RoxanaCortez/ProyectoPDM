@@ -344,7 +344,9 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                 ganador++;
 
                 if (ganador == 8) {
-                    Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
+                    Intent intent_score = new Intent(getApplicationContext(), MemoryScore.class);
+                    startActivity(intent_score);
+                    //Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
                 }//Aqui se van a a cambiar los iconos
             }
             if (cartas_final[0] == 0) {
@@ -524,6 +526,21 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
 
     @Override
     public void InicioPlayMemory() {
+
+    }
+
+    @Override
+    public void Salir() {
+
+    }
+
+    @Override
+    public void Exit() {
+
+    }
+
+    @Override
+    public void Exit2() {
 
     }
 }

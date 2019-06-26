@@ -57,6 +57,20 @@ public class ContenedorGames extends AppCompatActivity implements ComunicaGames,
         startActivity(intent_playMemory);
     }
 
+    @Override
+    public void Salir() {
+        onBackPressed();
+    }
+
+    @Override
+    public void Exit() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentGames).commit();
+    }
+
+    @Override
+    public void Exit2() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_games, fragmentGames).commit();
+    }
 
 
 }

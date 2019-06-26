@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
@@ -34,6 +35,7 @@ public class Games extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     Button word_btn, memory_btn;
+    ImageButton salir;
     View vista;
     Activity actividad;
     ComunicaGames interfaceComunicaGames;
@@ -77,9 +79,11 @@ public class Games extends Fragment {
 
         memory_btn = vista.findViewById(R.id.btn_memory);
         word_btn = vista.findViewById(R.id.btn_word);
+        salir = vista.findViewById(R.id.salir);
 
         memory_btn.setOnClickListener(clickListener);
         word_btn.setOnClickListener(clickListener);
+        salir.setOnClickListener(clickListener);
 
         return vista;
     }
@@ -135,6 +139,9 @@ public class Games extends Fragment {
                     break;
                 case R.id.btn_word:
                     interfaceComunicaGames.InicioWords();
+                    break;
+                case R.id.salir:
+                    interfaceComunicaGames.Salir();
                     break;
             }
         }

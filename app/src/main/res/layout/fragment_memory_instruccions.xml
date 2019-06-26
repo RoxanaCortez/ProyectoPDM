@@ -123,4 +123,10 @@
 
         </LinearLayout>
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/salir2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home2_icon"/>
 </FrameLayout>
