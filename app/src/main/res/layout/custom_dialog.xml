@@ -1,49 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="80dp"
-    android:background="#3E80B4"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:minWidth="300dp"
+    android:minHeight="400dp"
+    android:background="@drawable/curved_corner_dialog"
     android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/txt_dia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:text="Do you realy want to exit ?"
-        android:textColor="@android:color/white"
-        android:textSize="15dp"
-        android:textStyle="bold"/>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#3E80B4"
-        android:orientation="horizontal" >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/medium_margim"
+        >
 
-        <Button
-            android:id="@+id/btn_yes"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:background="@android:color/white"
-            android:clickable="true"
-            android:text="Yes"
-            android:textColor="#5DBCD2"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/exit_dialog_icon"/>
 
-        <Button
-            android:id="@+id/btn_no"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:background="@android:color/white"
-            android:clickable="true"
-            android:text="No"
-            android:textColor="#5DBCD2"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txt_dia"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:fontFamily="@font/bree_serif"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Estás seguro de salir?"
+                android:textColor="@color/darkgray"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:layout_gravity="center"
+            android:background="#fff"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btn_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yes_dialog_icon"
+                android:clickable="true"
+                android:layout_marginRight="@dimen/big_margin"
+                android:text="Yes"
+                android:textColor="#5DBCD2"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btn_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/big_margin"
+                android:background="@drawable/no_dialog_icon"
+                android:clickable="true"
+                android:text="No"
+                android:textColor="#5DBCD2"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
