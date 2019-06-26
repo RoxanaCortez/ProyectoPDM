@@ -11,14 +11,14 @@ import com.roxyapps.roxana.proyectopdm.R;
 
 public class CustomDialog extends Dialog implements
         android.view.View.OnClickListener{
-    public Activity c;
+    public Activity clase;
     public Dialog d;
-    public Button yes, no;
+    public Button ButtonYes, ButtonNo;
 
-    public CustomDialog(Activity a) {
-        super(a);
+    public CustomDialog(Activity activity) {
+        super(activity);
         // TODO Auto-generated constructor stub
-        this.c = a;
+        this.clase = activity;
     }
 
     @Override
@@ -26,10 +26,10 @@ public class CustomDialog extends Dialog implements
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.custom_dialog);
-        yes = (Button) findViewById(R.id.btn_yes);
-        no = (Button) findViewById(R.id.btn_no);
-        yes.setOnClickListener(this);
-        no.setOnClickListener(this);
+        ButtonYes = (Button) findViewById(R.id.btn_yes);
+        ButtonNo = (Button) findViewById(R.id.btn_no);
+        ButtonYes.setOnClickListener(this);
+        ButtonNo.setOnClickListener(this);
 
     }
 
@@ -37,7 +37,7 @@ public class CustomDialog extends Dialog implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_yes:
-                c.finish();
+                clase.finish();
                 break;
             case R.id.btn_no:
                 dismiss();
