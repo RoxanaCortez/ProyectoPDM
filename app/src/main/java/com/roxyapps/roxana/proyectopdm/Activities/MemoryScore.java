@@ -31,7 +31,7 @@ public class MemoryScore extends AppCompatActivity {
                     startActivity(intent_salir);
                     break;
                 case R.id.btn_nueva2:
-                    Intent intent_nueva = new Intent(getApplicationContext(), WordsGame.class);
+                    Intent intent_nueva = new Intent(getApplicationContext(), MemoryGame.class);
                     startActivity(intent_nueva);
                     break;
             }
