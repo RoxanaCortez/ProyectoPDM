@@ -18,34 +18,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000"
-            android:fontFamily="@font/advent_pro"
+            android:fontFamily="@font/bree_serif"
             android:layout_margin="8dp"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:text="Desarrollado por:"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_margin="@dimen/medium_margin"
             android:orientation="vertical">
 
+
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:padding="4dp">
 
                 <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/roxy_icon"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/medium_margin"
@@ -56,10 +60,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tv_name_rc"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:textColor="#000"
                         android:textStyle="bold"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         />
 
                     <TextView
@@ -67,27 +71,27 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="@string/tv_github_rc"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:textColor="@color/darkgray"
                         android:textAlignment="center"
                         android:gravity="center"
                         android:drawableStart="@drawable/github_icon"
                         android:drawablePadding="@dimen/small_margin"
                         android:drawableLeft="@drawable/github_icon"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/darkgray"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:text="roxana.poncita@gmail.com"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:drawableLeft="@drawable/gmail_icon"
                         android:drawablePadding="@dimen/small_margin"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         />
 
                 </LinearLayout>
@@ -95,22 +99,23 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/small_margin"
                 android:layout_gravity="center"
                 android:padding="4dp">
 
                 <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/carlos_icon"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/medium_margin"
@@ -122,10 +127,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tv_name_cb"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:textColor="#000"
                         android:textStyle="bold"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         />
 
                     <TextView
@@ -137,9 +142,9 @@
                         android:gravity="center"
                         android:drawablePadding="@dimen/small_margin"
                         android:textAlignment="center"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:textColor="@color/darkgray"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -151,8 +156,8 @@
                         android:textAlignment="center"
                         android:drawableLeft="@drawable/gmail_icon"
                         android:drawablePadding="@dimen/small_margin"
-                        android:fontFamily="@font/advent_pro"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/bree_serif"
+                        android:textSize="12sp"
                         />
 
                 </LinearLayout>
@@ -160,22 +165,23 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="@dimen/small_margin"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_weight="1"
                 android:padding="4dp">
 
                 <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xavi_icon"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/medium_margin"
@@ -186,10 +192,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tv_name_xf"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:textColor="#000"
                         android:textStyle="bold"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         />
 
                     <TextView
@@ -201,22 +207,22 @@
                         android:gravity="center"
                         android:textAlignment="center"
                         android:drawablePadding="@dimen/small_margin"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:textColor="@color/darkgray"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/darkgray"
-                        android:fontFamily="@font/advent_pro"
+                        android:fontFamily="@font/bree_serif"
                         android:drawablePadding="@dimen/small_margin"
                         android:drawableLeft="@drawable/gmail_icon"
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="@string/tv_mail_xf"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         />
 
                 </LinearLayout>
@@ -238,24 +244,47 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/medium_margin"
                 android:layout_marginRight="@dimen/medium_margin"
-                android:fontFamily="@font/advent_pro"
+                android:fontFamily="@font/bree_serif"
                 android:text="La motivación de esta app fue por realizar un proyecto de la materia 'Programación de dispositivos móviles' impartida en la Universidad Centroamericana 'José Simeón Cañas' UCA. "
-                android:textColor="#000"
-                android:textSize="16sp"
-                android:textStyle="italic" />
+                android:textColor="@color/darkgray"
+                android:textSize="14sp" />
+
+            <ScrollView
+                android:id="@+id/SCROLLER_ID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:fillViewport="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_marginRight="@dimen/medium_margin"
+                android:layout_margin="@dimen/medium_margim"
+                android:fontFamily="@font/bree_serif"
+                android:text="Créditos extras"
+                android:textColor="@color/darkgray"
+                android:textSize="14sp" />
+            </ScrollView>
 
 
             <Button
                 android:id="@+id/btn_inicio"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_width="150dp"
                 android:background="@drawable/rounded_shape_bluelight"
-                android:text="Inicio"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bree_serif"
+                android:layout_marginTop="80dp"
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:drawableLeft="@drawable/home2_icon"
+                android:paddingLeft="10dp"
+                android:drawablePadding="@dimen/medium_margim"
+                android:textSize="18sp"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="14sp" />
+                android:text="Inicio"/>
 
         </LinearLayout>
 

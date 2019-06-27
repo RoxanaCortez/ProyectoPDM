@@ -1,63 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.WordScore">
+    android:background="@drawable/gradient_green"
+    tools:context=".Activities.MemoryScore">
 
-    <TextView
-        android:id="@+id/name2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
 
-    <TextView
-        android:id="@+id/parejas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Parejas encontradas" />
+    <ImageView
+        android:layout_width="410dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center|right"
+        android:alpha="0.3"
+        android:background="@drawable/mountains2_icon"/>
 
-    <TextView
-        android:id="@+id/nparejas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
 
-    <TextView
-        android:id="@+id/faltantes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Parejas faltantes" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:alpha="0.3"
+        android:background="@drawable/giraffe2_icon"
+        android:layout_marginBottom="130dp"
+        android:layout_gravity="bottom|left"/>
 
-    <TextView
-        android:id="@+id/nfaltantes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
 
-    <TextView
-        android:id="@+id/puntaje2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Puntos obtenidos" />
 
-    <TextView
-        android:id="@+id/npuntaje2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
 
-    <ImageButton
-        android:id="@+id/btn_nueva2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="end|bottom|center"
-        android:layout_margin="@dimen/medium_margin"
-        android:background="@drawable/home2_icon"
-        android:tint="@color/darkgray"
-        android:textColor="#fff" />
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.3"
+        android:background="@drawable/palm2_icon"
+        android:layout_gravity="bottom|right"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:alpha="0.3"
+        android:background="@drawable/monkey2_icon"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|left"
+        android:alpha="0.3"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/bee2_icon"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|left"
+        android:alpha="0.3"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/flower_icon"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|left"
+        android:alpha="0.3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/flower2_icon"/>
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:alpha="0.3"
+        android:layout_gravity="bottom|left"
+        android:background="@drawable/grass3_icon"/>
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.3"
+        android:layout_gravity="top|left"
+        android:background="@drawable/clouds_icon"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|right"
+        android:alpha="0.3"
+        android:background="@drawable/clouds_icon"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="@dimen/big_margin"
+            android:alpha="0.9">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/medium_margim">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resultados"
+                    android:gravity="center"
+                    android:textColor="@color/color_brown"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/bree_serif"
+                    android:layout_margin="@dimen/medium_margim"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/parejas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parejas encontradas:"
+                        android:layout_margin="@dimen/medium_margim"
+                        android:fontFamily="@font/bree_serif"
+                        android:textSize="18sp"
+                        android:textColor="#000"/>
+
+                    <TextView
+                        android:id="@+id/nparejas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:gravity="right"
+                        android:fontFamily="@font/bree_serif"
+                        android:layout_margin="@dimen/medium_margim"
+                        android:textColor="@color/color_green"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/faltantes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parejas faltantes:"
+                        android:fontFamily="@font/bree_serif"
+                        android:layout_margin="@dimen/medium_margim"
+                        android:textSize="18sp"
+                        android:textColor="#000"/>
+
+                    <TextView
+                        android:id="@+id/nfaltantes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/medium_margim"
+                        android:fontFamily="@font/bree_serif"
+                        android:textColor="@color/color_red"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btn_nueva2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginLeft="@dimen/medium_margim"
+                    android:alpha="0.8"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:background="@drawable/rounded_shape_lightbrown"
+                    android:drawableLeft="@drawable/hippo_icon"
+                    android:drawablePadding="@dimen/medium_margim"
+                    android:fontFamily="@font/bree_serif"
+                    android:layout_marginTop="50dp"
+                    android:text="Jugar de nuevo"
+                    android:gravity="center|left"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/btn_home3"
@@ -68,4 +226,4 @@
         android:background="@drawable/home2_icon"
         android:tint="@color/darkgray"
         android:textColor="#fff" />
-</LinearLayout>
+</FrameLayout>

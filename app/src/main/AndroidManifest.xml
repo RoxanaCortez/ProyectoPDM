@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".Activities.MemoryScore"></activity>
+        <activity android:name=".Activities.MainActivity"></activity>
+        <activity android:name=".Activities.MemoryScore" />
         <activity android:name=".Activities.WordScore" />
         <activity android:name=".Activities.PlayerList" />
         <activity android:name=".Activities.MemoryGame" />
@@ -21,7 +22,7 @@
             android:label="@string/title_activity_contenedor_instrucciones"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Activities.InitAnimation"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

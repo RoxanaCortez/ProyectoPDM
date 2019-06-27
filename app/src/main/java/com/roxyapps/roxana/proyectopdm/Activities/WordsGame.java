@@ -2,6 +2,9 @@ package com.roxyapps.roxana.proyectopdm.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
@@ -25,7 +28,7 @@ import com.roxyapps.roxana.proyectopdm.R;
 public class WordsGame extends AppCompatActivity implements ComunicaGames, WordsInstructions.OnFragmentInteractionListener{
 
     private WordsViewModel words;
-
+    private int faltantes;
     private TextView puntostxt, numerotxt, frutatxt;
     private ImageButton atras;
     private ImageView fruta;
@@ -33,6 +36,8 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
 
     private String selecciono, resultado ="", opc1, opc2, opc3;
     private int pntObtenido, numFruta, total1, posicion;
+    MediaPlayer correct_sound;
+    MediaPlayer error_sound;
 
     Fragment wordsInstructions;
     ComunicaGames interfaceComunicaGames;
@@ -63,6 +68,10 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
         wordsInstructions = new WordsInstructions();
 
         actualizarFruta();
+
+        correct_sound = MediaPlayer.create(this, R.raw.zapsplat_multimedia_notification_mallet_synth_dreamy_012_26421);
+        error_sound = MediaPlayer.create(this, R.raw.zapsplat_multimedia_notification_tone_piano_error_002_25515);
+
     }
 
     public String getResultado() {
@@ -79,7 +88,7 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
             posicion = (int) ((Math.random() * word.size())) % (word.size() - 1);
 
             total1 = word.size();
-            if(numFruta<total1){
+            if(numFruta<10){
                 fruta.setImageResource(word.get(posicion).getImagen());
                 frutatxt.setText(word.get(posicion).getPregunta());
                 opcion1.setText(word.get(posicion).getOpcion1());
@@ -90,32 +99,15 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
                 opc3 = word.get(posicion).getOpcion3();
                 selecciono =word.get(posicion).getRespuesta();
 
-                numerotxt.setText(++numFruta+"/19");
+                numerotxt.setText(++numFruta+"/10");
             }else{
-                Intent intent_score = new Intent(getApplicationContext(), WordScore.class);
-                startActivity(intent_score);
+                Intent mIntent=new Intent(WordsGame.this, WordScore.class);
+                mIntent.putExtra(AppConstants.TEXT_PALABRAS, String.valueOf(pntObtenido));
+                mIntent.putExtra(AppConstants.TEXT_IPALABRAS, String.valueOf(faltantes));
+                startActivity(mIntent);
             }
         });
     }
-
-    public AlertDialog mensaje(){
-        AlertDialog.Builder mensaje = new AlertDialog.Builder(WordsGame.this);
-
-        mensaje.setMessage("Está seguro de salir del juego")
-                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        onBackPressed();
-                    }
-                })
-                .setPositiveButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
-                    }
-                });
-        return mensaje.create();
-    };
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
@@ -123,39 +115,54 @@ public class WordsGame extends AppCompatActivity implements ComunicaGames, Words
             switch (v.getId()){
                 case R.id.btn_opc1:
                     if(opc1.equals(selecciono)){
-                        Toast.makeText(getApplicationContext(), "si entra", Toast.LENGTH_SHORT).show();
+                        correct_sound.start(); //sonido de respusta correcta
+                        //Toast.makeText(getApplicationContext(), "si entra", Toast.LENGTH_SHORT).show();
                         pntObtenido += 1;
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
                     }else{
+                        error_sound.start(); //sonido de respuesta incorrecta
                         actualizarFruta();
+                        faltantes += 1;
                     }
                     break;
                 case R.id.btn_opc2:
                     if(opc2.equals(selecciono)){
+                        correct_sound.start();
                         pntObtenido += 1;
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
                     }else{
+                        error_sound.start();
                         actualizarFruta();
+                        faltantes +=1;
                     }
                     break;
                 case R.id.btn_opc3:
                     if(opc3.equals(selecciono)){
+                        correct_sound.start();
                         pntObtenido += 1;
                         actualizarPuntos(pntObtenido);
                         actualizarFruta();
                     }else{
+                        error_sound.start();
                         actualizarFruta();
+                        faltantes +=1;
                     }
                     break;
                 case R.id.btn_atras:
-                    mensaje().show();
+                    CustomDialog customD=new CustomDialog(WordsGame.this);
+                    customD.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    customD.show();
                     break;
                 case R.id.btn_finalizar:
                     //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
-                    Intent intent_score = new Intent(getApplicationContext(), WordScore.class);
-                    startActivity(intent_score);
+                    Intent mIntent=new Intent(WordsGame.this, WordScore.class);
+                    mIntent.putExtra(AppConstants.TEXT_PALABRAS, String.valueOf(pntObtenido));
+                    mIntent.putExtra(AppConstants.TEXT_IPALABRAS, String.valueOf(faltantes));
+                    startActivity(mIntent);
+
+
                     break;
             }
         }

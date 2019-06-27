@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="410dp"
+            android:layout_height="575dp"
             android:padding="@dimen/medium_margin"
             android:orientation="vertical">
 
@@ -38,15 +38,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textColor="@color/darkgray"
                     android:textStyle="bold"
-                    android:fontFamily="@font/advent_pro"
+                    android:fontFamily="@font/bree_serif"
 
-                    android:text="¿Qué es la Dislexia?\n\n
-                    Dislexia es una dificultad de aprendizaje diagnosticada en donde se ven afectadas la capacidad de lectura y la escritura.\n\n
-                    Siendo esta, solo la dificultad, es común que los pacientes no presenten ninguna discapacidad fisica, motriz, visual o de otro tipo.\n\n
-                    Las señales mas comunes en dislexia son la constante confusion entre caracteres similares y difultad de escribir de manera correcta estos." />
+                    android:text="¿Qué es la Dislexia?\n\nDislexia es una dificultad de aprendizaje diagnosticada en donde se ven afectadas la capacidad de lectura y la escritura.\n\nSiendo esta, solo la dificultad, es común que los pacientes no presenten ninguna discapacidad fisica, motriz, visual o de otro tipo.\n\nLas señales mas comunes en dislexia son la constante confusion entre caracteres similares y difultad de escribir de manera correcta estos." />
             </ScrollView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

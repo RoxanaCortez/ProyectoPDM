@@ -14,6 +14,8 @@ import android.widget.ImageButton;
 import com.roxyapps.roxana.proyectopdm.Interfaces.ComunicaGames;
 import com.roxyapps.roxana.proyectopdm.R;
 
+import at.markushi.ui.CircleButton;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -34,7 +36,7 @@ public class Games extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    Button word_btn, memory_btn;
+    CircleButton word_btn, memory_btn;
     ImageButton salir;
     View vista;
     Activity actividad;

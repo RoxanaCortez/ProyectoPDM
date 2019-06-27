@@ -3,6 +3,8 @@ package com.roxyapps.roxana.proyectopdm.Activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,25 +19,26 @@ import com.roxyapps.roxana.proyectopdm.R;
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
 
     Fragment fragmentInicio;
-    MediaPlayer player;
+    //MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         fragmentInicio = new Inicio();
-        player = MediaPlayer.create(this, R.raw.music);
-        player.start();
+        //player = MediaPlayer.create(this, R.raw.music);
+        //player.start();
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
 
-    public void onPause(){
+   /* public void onPause(){
         super.onPause();
         player.release();
-    }
+    }*/
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -67,10 +70,12 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
 
     @Override
     public void Salir() {
-        mensaje().show();
+        CustomDialog customD=new CustomDialog(MainActivity.this);
+        customD.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        customD.show();
     }
 
-    @Override
+   /* @Override
     public void Play() {
         if(player.isPlaying()==true){
             player.pause();
@@ -78,24 +83,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         else{
             player.start();
         }
-    }
+    }*/
 
-    public AlertDialog mensaje(){
-        AlertDialog.Builder mensaje = new AlertDialog.Builder(MainActivity.this);
 
-        mensaje.setMessage("Está seguro que desea salir")
-                .setNegativeButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .setPositiveButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
-                    }
-                });
-        return mensaje.create();
-    };
 }

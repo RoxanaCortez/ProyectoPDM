@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="410dp"
+            android:layout_height="575dp"
             android:orientation="vertical"
             android:padding="@dimen/medium_margin">
 
@@ -38,11 +38,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textColor="@color/darkgray"
                     android:textStyle="bold"
-                    android:fontFamily="@font/advent_pro"
-                    android:text="            OBJETIVOS DE JUEGOS \n\n 1. COMPLETA PALABRAS: \nEl juego consiste en tener un fragmento de una palabra de manera fija y diferentes opciones de silabas que pueden completar la dicho fragmento de palabra. Se deberá elegir la silaba correcta para poder avanzar más y tener mayor puntaje. \n\n2. MEMORIA: \nEs el clasico juego de memory en donde aparecen distintas cartas boca abajo y cada una tendra un caracter en ella. Se intenta que el paciente recuerde la figura de la que se vio en una carta al voltearla y juntarla con su homóloga. "/>
+                    android:fontFamily="@font/bree_serif"
+                    android:text="OBJETIVOS DE JUEGOS \n\n 1. COMPLETA PALABRAS: \nEl juego consiste en tener un fragmento de una palabra de manera fija y diferentes opciones de silabas que pueden completar la dicho fragmento de palabra. Se deberá elegir la silaba correcta para poder avanzar más y tener mayor puntaje. \n\n2. MEMORIA: \nEs el clasico juego de memory en donde aparecen distintas cartas boca abajo y cada una tendra un caracter en ella. Se intenta que el paciente recuerde la figura de la que se vio en una carta al voltearla y juntarla con su homóloga. "/>
 
             </ScrollView>
 

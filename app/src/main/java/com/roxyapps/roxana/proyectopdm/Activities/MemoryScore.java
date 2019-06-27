@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class MemoryScore extends AppCompatActivity {
-    ImageButton home2,nueva2;
+    ImageButton home2;
+    Button nueva2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/medium_margin"
-                android:alpha="0.8"
+                android:alpha="0.9"
                 app:cardCornerRadius="@dimen/small_margin"
                 >
                 <LinearLayout
@@ -85,16 +85,21 @@
 
                     <Button
                         android:id="@+id/btn_playMemory"
-                        android:layout_width="200dp"
+                        android:layout_width="110dp"
                         android:background="@drawable/rounded_shape_lightbrown"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:layout_gravity="center"
+                        android:paddingTop="@dimen/medium_margim"
+                        android:paddingBottom="@dimen/medium_margim"
                         android:textAllCaps="false"
+                        android:drawableTop="@drawable/panda_icon"
                         android:fontFamily="@font/bree_serif"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:text="Juguemos"/>
+
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -126,7 +131,8 @@
 
     <ImageButton
         android:id="@+id/salir2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/home2_icon"/>
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/medium_margim"
+        android:background="@drawable/back_icon"/>
 </FrameLayout>

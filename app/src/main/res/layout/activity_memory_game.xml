@@ -401,18 +401,22 @@
 
 
 
-        <Button
-            android:id="@+id/btn_terminar"
-            android:layout_width="200dp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:layout_marginTop="48dp"
-            android:fontFamily="@font/bree_serif"
-            android:alpha="0.8"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_shape_lightbrown"
-            android:text="Terminar"/>
+            <Button
+                android:id="@+id/btn_terminar"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:text="Terminar"
+                android:alpha="0.8"
+                android:textAllCaps="false"
+                android:gravity="left|center"
+                android:textColor="#fff"
+                android:fontFamily="@font/bree_serif"
+                android:drawablePadding="@dimen/medium_margim"
+                android:textSize="16sp"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:drawableLeft="@drawable/finish2_game_icon"
+                android:background="@drawable/rounded_shape_lightbrown"/>
 
     </LinearLayout>
 
@@ -420,11 +424,11 @@
 
     <ImageButton
         android:id="@+id/btn_atras2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="end|bottom|center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="start|top|center"
         android:layout_margin="@dimen/medium_margin"
-        android:background="@drawable/home2_icon"
+        android:background="@drawable/back_blue_icon"
         android:tint="@color/darkgray"
         android:textColor="#fff" />
 

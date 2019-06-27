@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="410dp"
+            android:layout_height="575dp"
             android:orientation="vertical"
             android:padding="@dimen/medium_margin">
 
@@ -38,11 +38,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textColor="@color/darkgray"
                     android:textStyle="bold"
-                    android:fontFamily="@font/advent_pro"
-                    android:text="*'cue nombre de la aplicacion'* \n\nOBJETIVO:\nLa app esta dieñada para que niños con dislexia puedan tener un una alternativa de juegos que les ayude con su dificultad; cuenta con un seguimiento de progresos para mantener informados a los padres y tambien del tiempo de uso que se le da en los juegos. \n\nSe busca que el niño pueda diferenciar entre como se escriben palabras de manera correcta e incorrecta y poder distinguir ciertos caracteres de otros." />
+                    android:fontFamily="@font/bree_serif"
+                    android:text="BRAINING \n\nOBJETIVO:\nLa app esta dieñada para que niños con dislexia puedan tener un una alternativa de juegos que les ayude con su dificultad; cuenta con un seguimiento de progresos para mantener informados a los padres y tambien del tiempo de uso que se le da en los juegos. \n\nSe busca que el niño pueda diferenciar entre como se escriben palabras de manera correcta e incorrecta y poder distinguir ciertos caracteres de otros." />
             </ScrollView>
 
         </LinearLayout>

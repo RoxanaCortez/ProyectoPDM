@@ -48,46 +48,62 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:gravity="center"
             >
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
                 android:text="Juegos"
                 android:layout_gravity="center"
-                android:textColor="#3FC300"
+                android:textColor="#F81A00"
                 android:textSize="35sp"
                 app:fontFamily="@font/bree_serif" />
 
-            <Button
-                android:id="@+id/btn_word"
-                android:layout_width="200dp"
-                android:background="@drawable/rounded_shape_red"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="#fff"
-                android:fontFamily="@font/bree_serif"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:text="Palabras"
-                android:textAllCaps="false"/>
 
-            <Button
-                android:id="@+id/btn_memory"
-                android:layout_width="200dp"
-                android:background="@drawable/rounded_shape_red"
-                android:layout_height="wrap_content"
+            <at.markushi.ui.CircleButton
+                android:id="@+id/btn_word"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                app:cb_color="#E40101"
                 android:layout_gravity="center"
-                android:alpha="0.9"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:text="Memoria"
+                app:cb_pressedRingWidth="16dp"
+                android:src="@drawable/words_game_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/bree_serif"
-                android:textSize="20sp"
-                android:textAllCaps="false"
-                android:layout_margin="@dimen/big_margin"/>
+                android:text="Sílabas"
+                android:textSize="18sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:textColor="#C00303"
+                android:layout_gravity="center"/>
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/btn_memory"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                app:cb_color="#349A00"
+                android:layout_gravity="center"
+                app:cb_pressedRingWidth="16dp"
+                android:src="@drawable/memory_game_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bree_serif"
+                android:text="Memoria"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#349A00"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"/>
+
+
 
         </LinearLayout>
 
@@ -95,8 +111,9 @@
 
     <ImageButton
         android:id="@+id/salir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/home2_icon"/>
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/medium_margim"
+        android:background="@drawable/back_icon"/>
 
 </FrameLayout>

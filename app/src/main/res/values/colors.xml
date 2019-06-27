@@ -16,5 +16,6 @@
         <color name="text_shadow">#7F000000</color>
         <color name="text_shadow_white">#FFFFFF</color>
     <color name="color_brown">#A26700</color>
+    <color name="color_green">#40AF00</color>
 
 </resources>

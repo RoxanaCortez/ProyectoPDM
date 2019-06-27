@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -41,6 +42,10 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     private MemoryViewModel memory;
 
     private SoundPool sonido;
+    MediaPlayer correct_sound; //sonido de acierto
+    MediaPlayer error_sound; //sonido de error
+    MediaPlayer croud_sound; //sonido de aplausos
+
     private int click;
 
     private ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
@@ -109,6 +114,10 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
         terminar.setOnClickListener(clickListener);
         atras2.setOnClickListener(clickListener);
 
+        correct_sound = MediaPlayer.create(this, R.raw.zapsplat_multimedia_notification_mallet_synth_dreamy_012_26421);
+        error_sound = MediaPlayer.create(this, R.raw.zapsplat_multimedia_notification_tone_piano_error_002_25515);
+        croud_sound = MediaPlayer.create(this, R.raw.crowdapplause);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             AudioAttributes audio = new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
@@ -129,12 +138,17 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     }
 
 
-
     private void colocarImagenes() {
         memory.getAll().observe(this, pictures -> {
             if (pictures == null || pictures.size() == 0) return;
-            for (int i = 0; i < 8; i++) {
+            imagenes[0] = pictures.get((int) ((Math.random() * pictures.size()))% (pictures.size()-1)).getImagen();
+            for (int i = 1; i < 8; i++) {
                 imagenes[i] = pictures.get((int) ((Math.random() * pictures.size()))% (pictures.size()-1)).getImagen();
+                for(int j=0; j<i; j++){
+                    if(imagenes[i]==imagenes[j]){
+                        i--;
+                    }
+                }
             }
 
             int posicion, contador = 0;
@@ -341,6 +355,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                 parejas.setText(++numero + "/8");
                 numero2 += 1;
                 actualizarPuntos(numero2);
+                correct_sound.start(); //si son parejas sueno sonido de acierto
                 ganador++;
 
                 if (ganador == 8) {
@@ -348,7 +363,11 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                     startActivity(intent_score);
                     //Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
                 }//Aqui se van a a cambiar los iconos
+            }else{
+                error_sound.start(); //sino son pareja suena sonido de error
             }
+
+
             if (cartas_final[0] == 0) {
                 imagen1.setImageResource(R.drawable.carta_icon);
                 imagen1.setEnabled(true);
