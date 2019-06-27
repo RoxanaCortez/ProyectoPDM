@@ -199,7 +199,7 @@
                     android:alpha="0.8"
                     android:layout_marginRight="@dimen/small_margin"
                     android:background="@drawable/rounded_shape_lightbrown"
-                    android:drawableLeft="@drawable/hippo_icon"
+                    android:drawableLeft="@drawable/pig_icon"
                     android:drawablePadding="@dimen/medium_margim"
                     android:fontFamily="@font/bree_serif"
                     android:layout_marginTop="50dp"

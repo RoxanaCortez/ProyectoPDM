@@ -46,6 +46,7 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
     MediaPlayer error_sound; //sonido de error
     MediaPlayer croud_sound; //sonido de aplausos
 
+    private int faltantes = 8;
     private int click;
 
     private ImageView imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11,
@@ -294,9 +295,10 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
                     customD.show();
                     break;
                 case R.id.btn_terminar:
-                    //Toast.makeText(getApplicationContext(), "Estoy aceptando el click", Toast.LENGTH_SHORT).show();
-                    Intent intent_score = new Intent(getApplicationContext(), MemoryScore.class);
-                    startActivity(intent_score);
+                    Intent mIntent=new Intent(MemoryGame.this, MemoryScore.class);
+                    mIntent.putExtra(AppConstants.TEXT_PAREJAS, String.valueOf(numero2));
+                    mIntent.putExtra(AppConstants.TEXT_IPAREJAS, String.valueOf(faltantes));
+                    startActivity(mIntent);
                     break;
             }
             if (turno == 0) {
@@ -354,13 +356,16 @@ public class MemoryGame extends AppCompatActivity implements ComunicaGames, Memo
 
                 parejas.setText(++numero + "/8");
                 numero2 += 1;
+                faltantes -=1;
                 actualizarPuntos(numero2);
                 correct_sound.start(); //si son parejas sueno sonido de acierto
                 ganador++;
 
                 if (ganador == 8) {
-                    Intent intent_score = new Intent(getApplicationContext(), MemoryScore.class);
-                    startActivity(intent_score);
+                    Intent mIntent=new Intent(MemoryGame.this, MemoryScore.class);
+                    mIntent.putExtra(AppConstants.TEXT_PAREJAS, String.valueOf(numero2));
+                    mIntent.putExtra(AppConstants.TEXT_IPAREJAS, String.valueOf(faltantes));
+                    startActivity(mIntent);
                     //Toast.makeText(getApplicationContext(), "!Encontro las 8 parejas¡", Toast.LENGTH_SHORT).show();
                 }//Aqui se van a a cambiar los iconos
             }else{

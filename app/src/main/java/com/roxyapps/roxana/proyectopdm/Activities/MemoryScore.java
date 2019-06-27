@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.roxyapps.roxana.proyectopdm.R;
 
 public class MemoryScore extends AppCompatActivity {
     ImageButton home2;
     Button nueva2;
+    TextView parejas, iparejas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,14 @@ public class MemoryScore extends AppCompatActivity {
         home2.setOnClickListener(clickListener);
         nueva2=findViewById(R.id.btn_nueva2);
         nueva2.setOnClickListener(clickListener);
+        parejas=findViewById(R.id.nparejas);
+        iparejas=findViewById(R.id.nfaltantes);
+
+        Intent mIntent = this.getIntent();
+        if(mIntent != null){
+            parejas.setText(mIntent.getStringExtra(AppConstants.TEXT_PAREJAS));
+            iparejas.setText(mIntent.getStringExtra(AppConstants.TEXT_IPAREJAS));
+        }
     }
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override

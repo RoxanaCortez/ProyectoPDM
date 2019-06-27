@@ -4,28 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/inicio"
-android:background="@drawable/gradient_bg_home"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.Inicio">
 
-    <ImageView
-        android:layout_width="500dp"
-        android:alpha="0.6"
-        android:layout_gravity="center"
-        android:layout_height="750dp" />
 
-   <!-- <ImageView
-        android:layout_width="600dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center|top"
-        android:background="@drawable/load2_icon"/>-->
 
-    <!--<LinearLayout
+
+
+
+  <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+      android:alpha="0.5"
+      android:layout_marginRight="150dp"
+        android:layout_gravity="top|center"
+        android:background="@drawable/ic_image"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#005779">
-    </LinearLayout>-->
+        android:layout_height="275dp"
+        android:alpha="0.8"
+        android:background="@drawable/gradient_top"></LinearLayout>
 
 
 
@@ -63,7 +63,7 @@ android:background="@drawable/gradient_bg_home"
                         android:id="@+id/btn_parents"
                         android:layout_width="128dp"
                         android:layout_height="128dp"
-                        app:cb_color="#FF0000"
+                        app:cb_color="#D90066"
                         android:layout_gravity="center"
                         app:cb_pressedRingWidth="16dp"
                         android:src="@drawable/parents_icon"/>
@@ -120,7 +120,7 @@ android:background="@drawable/gradient_bg_home"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
-            <androidx.cardview.widget.CardView
+            <!--<androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -151,7 +151,7 @@ android:background="@drawable/gradient_bg_home"
                         android:textSize="16sp"
                         />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -169,7 +169,7 @@ android:background="@drawable/gradient_bg_home"
                         android:id="@+id/btn_help"
                         android:layout_width="128dp"
                         android:layout_height="128dp"
-                        app:cb_color="#E40086"
+                        app:cb_color="#0094CF"
                         android:layout_gravity="center"
                         app:cb_pressedRingWidth="16dp"
                         android:src="@drawable/help_icon"/>
@@ -196,15 +196,25 @@ android:background="@drawable/gradient_bg_home"
         android:layout_height="30dp"
         android:layout_gravity="start|top|center"
         android:layout_margin="@dimen/medium_margin"
-        android:background="@drawable/back_blue_icon"
+        android:background="@drawable/back_icon"
         android:tint="@color/darkgray"
         android:textColor="#fff" />
 
-   <!-- <ImageButton
+    <ImageButton
         android:id="@+id/musica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/home2_icon"/>-->
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="@dimen/medium_margim"
+        android:background="@drawable/music_image"/>
+
+    <ImageButton
+        android:id="@+id/btn_about"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="right|top"
+        android:layout_margin="@dimen/medium_margim"
+        android:background="@drawable/intro2_icon"/>
 
 </FrameLayout>
 
