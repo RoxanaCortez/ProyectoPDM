@@ -42,7 +42,7 @@
                 android:textColor="@color/darkgray"
                 android:textStyle="bold"
                 android:fontFamily="@font/bree_serif"
-                android:text="RECOMENDACIONES PARA PADRES \n\n¡Gracias por probar esta app.! \n\nEsta app contiene 2 juegos para ayudar al usuario con dislexia. \n\nEn la Pantalla de Inicio se encuentra un botón bajo el tag de 'Padres'. Al acceder desde este boton, se dara un resumen del uso de la aplicacion en la seccion de 'Juegos' y una bitacora de las horas jugadas y los logros que se han obtenido. \n\nEs recomendable estar pendiente del progreso del paciente de dislexia para ver como ha cambiado su experiencia con la dificultad, y sugerir un cambio de plan de horas activas en juegos dependiendo de esto. " />
+                android:text="RECOMENDACIONES PARA PADRES  \n\nEsta app contiene 2 juegos para ayudar al usuario con dislexia. \n\nEs recomendable estar pendiente del progreso del paciente de dislexia para ver como ha cambiado su experiencia con la dificultad, y sugerir un cambio de plan de horas activas en juegos dependiendo de esto. " />
             </ScrollView>
 
         </LinearLayout>

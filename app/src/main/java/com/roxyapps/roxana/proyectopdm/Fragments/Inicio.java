@@ -79,14 +79,14 @@ public class Inicio extends Fragment {
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-        parents_btn = vista.findViewById(R.id.btn_parents);
+        //parents_btn = vista.findViewById(R.id.btn_parents);
         games_btn = vista.findViewById(R.id.btn_games);
         about_btn = vista.findViewById(R.id.btn_about);
         help_btn = vista.findViewById(R.id.btn_help);
         salir = vista.findViewById(R.id.btn_salir);
         music = vista.findViewById(R.id.musica);
 
-        parents_btn.setOnClickListener(clickListener);
+//        parents_btn.setOnClickListener(clickListener);
         games_btn.setOnClickListener(clickListener);
         about_btn.setOnClickListener(clickListener);
         help_btn.setOnClickListener(clickListener);
@@ -143,9 +143,9 @@ public class Inicio extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.btn_parents:
+                /*case R.id.btn_parents:
                     interfaceComunicaFragments.InicioParents();
-                    break;
+                    break;*/
                 case R.id.btn_games:
                     interfaceComunicaFragments.InicioGames();
                     break;

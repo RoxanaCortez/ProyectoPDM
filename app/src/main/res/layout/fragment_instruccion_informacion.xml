@@ -42,7 +42,7 @@
                     android:textColor="@color/darkgray"
                     android:textStyle="bold"
                     android:fontFamily="@font/bree_serif"
-                    android:text="BRAINING \n\nOBJETIVO:\nLa app esta dieñada para que niños con dislexia puedan tener un una alternativa de juegos que les ayude con su dificultad; cuenta con un seguimiento de progresos para mantener informados a los padres y tambien del tiempo de uso que se le da en los juegos. \n\nSe busca que el niño pueda diferenciar entre como se escriben palabras de manera correcta e incorrecta y poder distinguir ciertos caracteres de otros." />
+                    android:text="BRAINING \n\nOBJETIVO:\nLa app esta dieñada para que niños con dislexia puedan tener un una alternativa de juegos que les ayude con su dificultad.\n\nSe busca que el niño pueda diferenciar entre como se escriben palabras de manera correcta e incorrecta y poder distinguir ciertos caracteres de otros." />
             </ScrollView>
 
         </LinearLayout>

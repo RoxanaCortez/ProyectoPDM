@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         }
         else{
             player.start();
+            player.setLooping(true);
         }
     }
 
