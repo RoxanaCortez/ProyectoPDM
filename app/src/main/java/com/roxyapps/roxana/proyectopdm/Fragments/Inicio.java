@@ -84,14 +84,14 @@ public class Inicio extends Fragment {
         about_btn = vista.findViewById(R.id.btn_about);
         help_btn = vista.findViewById(R.id.btn_help);
         salir = vista.findViewById(R.id.btn_salir);
-        //music = vista.findViewById(R.id.musica);
+        music = vista.findViewById(R.id.musica);
 
         parents_btn.setOnClickListener(clickListener);
         games_btn.setOnClickListener(clickListener);
         about_btn.setOnClickListener(clickListener);
         help_btn.setOnClickListener(clickListener);
         salir.setOnClickListener(clickListener);
-        //music.setOnClickListener(clickListener);
+        music.setOnClickListener(clickListener);
 
         return vista;
     }
@@ -158,9 +158,9 @@ public class Inicio extends Fragment {
                 case R.id.btn_salir:
                     interfaceComunicaFragments.Salir();
                     break;
-                /*case R.id.musica:
+                case R.id.musica:
                     interfaceComunicaFragments.Play();
-                    break;*/
+                    break;
             }
         }
     };

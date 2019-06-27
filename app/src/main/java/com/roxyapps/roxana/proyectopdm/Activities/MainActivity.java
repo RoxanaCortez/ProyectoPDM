@@ -19,26 +19,32 @@ import com.roxyapps.roxana.proyectopdm.R;
 public class MainActivity extends AppCompatActivity implements ComunicaFragments, Inicio.OnFragmentInteractionListener{
 
     Fragment fragmentInicio;
-    //MediaPlayer player;
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         fragmentInicio = new Inicio();
-        //player = MediaPlayer.create(this, R.raw.music);
-        //player.start();
+        player = MediaPlayer.create(this, R.raw.music);
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, fragmentInicio).commit();
     }
 
-   /* public void onPause(){
-        super.onPause();
+
+    /*public void onStop(){
+        super.onStop();
         player.release();
     }*/
+
+    public void onDestroy(){
+        super.onDestroy();
+        player.release();
+    }
+
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         customD.show();
     }
 
-   /* @Override
+    @Override
     public void Play() {
         if(player.isPlaying()==true){
             player.pause();
@@ -83,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements ComunicaFragments
         else{
             player.start();
         }
-    }*/
+    }
 
 
 }

@@ -263,7 +263,7 @@
                 android:layout_marginRight="@dimen/medium_margin"
                 android:layout_margin="@dimen/medium_margim"
                 android:fontFamily="@font/bree_serif"
-                android:text="Créditos extras"
+                android:text="Créditos extras:\nCancion 'buddy' gracias a www.bensound.com"
                 android:textColor="@color/darkgray"
                 android:textSize="14sp" />
             </ScrollView>
